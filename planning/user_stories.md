@@ -1,13 +1,12 @@
-# User Stories
+## User Roles
+Student: a student seeking help for their classes
+Tutor: a tutor who is willing to help a student
 
-Reference the Writing User Stories final project guide in the course portal for more information about how to complete each of the sections below.
+## Student User Stories
+As a student, I want to view all tutors who are able to help with a certain subject
+As a student, I want to find and request a tutor so that I can get help with a specific subject
 
-## Outline User Roles
+## Tutor User Stories
+As a tutor, I want to view all students who need help with a certain subject, so that I can reach out to them.
+As a tutor, I want to view students who have requested to connect with me so that I can help them
 
-[👉🏾👉🏾👉🏾 Include at least at least 1, but no more than 3, user roles.]
-
-## Draft User Stories
-
-[👉🏾👉🏾👉🏾 Include at least at least 10 user stories in this format:]
-
-1. As a [user role], I want to [what], so that [why].
