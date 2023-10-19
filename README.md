@@ -1,38 +1,38 @@
-# [your app name here]
+# [TutorMe]
 
 CodePath WEB103 Final Project
 
-Designed and developed by: Patrick Biedermann AND _______
+Designed and developed by: Patrick Biedermann and Marvin Deng
 
 🔗 Link to deployed app:
 
 ## About
 
 ### Description and Purpose
-
-[text goes here]
+TutorMe is a web app that connects students who need help to experienced tutors who are willing to help other students.
 
 ### Inspiration
+Many university students struggle with their classes but don't know who to ask. TutorMe would streamline the process of connecting struggling students with tutors.
 
-[text goes here]
+## Frontend
+- Next.js
+- Tailwind CSS
+- Javascript
 
-## Tech Stack
-
-Frontend:
-
-Backend:
+## Backend
+- Express
+- PostgreSQL
+- Javascript
 
 ## Features
 
-### [Name of Feature 1]
-
-[short description goes here]
+### [Summary of students]
+- Displays all students who need help for a subject
 
 [gif goes here]
 
-### [Name of Feature 2]
-
-[short description goes here]
+### [Summary of tutors]
+- Displays all tutors willing to help for a subject
 
 [gif goes here]
 
