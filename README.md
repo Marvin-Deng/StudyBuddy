@@ -36,9 +36,9 @@ Many university students struggle with their classes but don't know who to ask. 
 
 [gif goes here]
 
-### [Name of Feature 3]
+### [Tutors can create tutor groups]
 
-[short description goes here]
+- Tutors will create groups with limited slots. Students can join these groups.
 
 [gif goes here]
 
