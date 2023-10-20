@@ -9,7 +9,7 @@ Designed and developed by: Patrick Biedermann and Marvin Deng
 ## About
 
 ### Description and Purpose
-TutorMe is a web app that connects students who need help to experienced tutors who are willing to help other students.
+TutorMe is a web app that connects students who need help to experienced tutors who are willing to help other students. The website will be free to use, and tutors will not get paid.
 
 ### Inspiration
 Many university students struggle with their classes but don't know who to ask. TutorMe would streamline the process of connecting struggling students with tutors.
