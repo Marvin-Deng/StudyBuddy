@@ -15,7 +15,7 @@ TutorMe is a web app that connects students who need help to experienced tutors 
 Many university students struggle with their classes but don't know who to ask. TutorMe would streamline the process of connecting struggling students with tutors.
 
 ## Frontend
-- Next.js
+- React.js
 - Tailwind CSS
 - Javascript
 
@@ -26,19 +26,21 @@ Many university students struggle with their classes but don't know who to ask. 
 
 ## Features
 
-### [Summary of students]
-- Displays all students who need help for a subject
+### Profile of students and tutors
+- Students and tutors have a profile page displaying their name, school, subjects their interested in, and methods of contact.
+
+### Summary of students
+- Displays all students who need help with a subject
 
 [gif goes here]
 
-### [Summary of tutors]
-- Displays all tutors willing to help for a subject
+### Summary of tutors
+- Displays all tutors willing to help with a subject
 
 [gif goes here]
 
-### [Tutors can create tutor groups]
-
-- Tutors will create groups with limited slots. Students can join these groups.
+### Tutors can create tutor groups
+- Tutors will create groups with limited slots. Students can view and join any open groups.
 
 [gif goes here]
 
