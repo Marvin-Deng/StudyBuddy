@@ -29,6 +29,8 @@ Many university students struggle with their classes but don't know who to ask. 
 ### Profile of students and tutors
 - Students and tutors have a profile page displaying their name, school, subjects their interested in, and methods of contact.
 
+[gif goes here]
+
 ### Summary of students
 - Displays all students who need help with a subject
 
@@ -43,6 +45,18 @@ Many university students struggle with their classes but don't know who to ask. 
 - Tutors will create groups with limited slots. Students can view and join any open groups.
 
 [gif goes here]
+
+### Users can login with github
+- Users will be able to login with their github account.
+
+[gif goes here]
+
+### Tutors can decide on meeting time and meeting type.
+- Tutors will be able to set day/times for when they want to meet. Additionally, they will be able to decide on how they want to meet (in person vs online) and if the choice is online, then add a link to the calls.
+
+[gif goes here]
+
+
 
 ### [ADDITIONAL FEATURES GO HERE - ADD ALL FEATURES HERE IN THE FORMAT ABOVE; you will check these off and add gifs as you complete them]
 
