@@ -1,10 +1,10 @@
 ## List of Tables
-Student
-Tutor
-Course
-Tutor Groups
-Student Courses
-Tutor Courses
+- Student
+- Tutor
+- Course
+- Tutor Groups
+- Student Courses
+- Tutor Courses
 
 ## Entity Relationship Diagram
 
