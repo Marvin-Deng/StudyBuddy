@@ -1,17 +1,19 @@
 import './App.css'
-import Navbar from './components/navbar'
+import NavbarComponent from './components/NavbarComponent'
 import { useRoutes } from 'react-router-dom'
 import Home from './pages/Home'
 function App() {
+
   let subpages = useRoutes([
     {
       path: '/',
       element: <Home/>
     }
   ])
+
   return (
     <>
-      <Navbar/>
+      <NavbarComponent/>
       {subpages}
     </>
   )
