@@ -1,8 +1,11 @@
 import React from 'react'
-
+import ViewTutors from '../components/ViewTutors'
 const Home = () => {
   return (
-    <div>HOMEPAGE</div>
+    <>
+    <h1>HOMEPAGE</h1>
+    <ViewTutors/>
+    </>
   )
 }
 
