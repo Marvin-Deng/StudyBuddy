@@ -1,23 +1,43 @@
 import { pool } from './db.js'
-import { createStudentTable } from './tables/StudentTable.js'
-import { createTutorTable } from './tables/TutorTable.js'
+import { createTableQueries } from './tables.js'
 import dotenv from 'dotenv'
 
 dotenv.config({ path: '../.env' })
 
 const dropTableIfExists = `
+    DROP TABLE IF EXISTS tutor_groups;
+    DROP TABLE IF EXISTS tutor_classes;
+    DROP TABLE IF EXISTS student_classes;
+    DROP TABLE IF EXISTS users;
     DROP TABLE IF EXISTS students;
     DROP TABLE IF EXISTS tutors;
+    DROP TABLE IF EXISTS classes;
 `
 
 const deleteTables = async () => {
     await pool.query(dropTableIfExists)
 }
 
+export const executeQuery = async (query) => {
+    try {
+        await pool.query(query)
+    }
+    catch (err) {
+        throw new Error('Failed to create the table: ' + err.message)
+    }
+}
+
 const resetDatabase = async () => {
     await deleteTables()
-    await createStudentTable()
-    await createTutorTable()
-  };
-  
+    
+    for (const query of createTableQueries) {
+        try {
+            await executeQuery(query)
+        } 
+        catch (error) {
+            console.error('Query execution failed:', error.message)
+        }
+    }
+};
+
 resetDatabase();
