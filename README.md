@@ -9,10 +9,10 @@ Designed and developed by: Patrick Biedermann and Marvin Deng
 ## About
 
 ### Description and Purpose
-TutorMe is a web app that connects students who need help to experienced tutors who are willing to help other students. The website will be free to use, and tutors will not get paid.
+TutorMe is a web app that connects students who need help to other students.
 
 ### Inspiration
-Many university students struggle with their classes but don't know who to ask. TutorMe would streamline the process of connecting struggling students with tutors.
+Many university students struggle with their classes but don't know who to ask. TutorMe would streamline the process of connecting struggling students with other students.
 
 ## Frontend
 - React.js
@@ -27,7 +27,7 @@ Many university students struggle with their classes but don't know who to ask. 
 ## Features
 
 ### Profile of students and tutors
-- Students and tutors have a profile page displaying their name, school, subjects their interested in, and methods of contact.
+- Students have a profile page displaying their name, school, subjects their interested in, and methods of contact.
 
 [gif goes here]
 
@@ -36,13 +36,9 @@ Many university students struggle with their classes but don't know who to ask. 
 
 [gif goes here]
 
-### Summary of tutors
-- Displays all tutors willing to help with a subject
 
-[gif goes here]
-
-### Tutors can create tutor groups
-- Tutors will create groups with limited slots. Students can view and join any open groups.
+### students can create student groups
+- Students will create groups with limited slots. Students can view and join any open groups.
 
 [gif goes here]
 
@@ -51,8 +47,8 @@ Many university students struggle with their classes but don't know who to ask. 
 
 [gif goes here]
 
-### Tutors can decide on meeting time and meeting type.
-- Tutors will be able to set day/times for when they want to meet. Additionally, they will be able to decide on how they want to meet (in person vs online) and if the choice is online, then add a link to the calls.
+### Students can decide on meeting time and meeting type.
+- Students will be able to set day/times for when they want to meet. Additionally, they will be able to decide on how they want to meet (in person vs online) and if the choice is online, then add a link to the calls.
 
 [gif goes here]
 
