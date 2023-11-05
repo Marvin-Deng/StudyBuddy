@@ -1,7 +1,7 @@
 import React from 'react'
 import {Row,Col,Container} from 'react-bootstrap';
-import TutorComponent from './TutorComponent';
-const ViewTutors = () => {
+import TutorComponent from './StudentComponent';
+const ViewStudents = () => {
     const mockData = [
         {
             id: 1,
@@ -36,4 +36,4 @@ const ViewTutors = () => {
   )
 }
 
-export default ViewTutors
+export default ViewStudents
