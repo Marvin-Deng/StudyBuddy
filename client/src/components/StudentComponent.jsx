@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
-const TutorComponent = ({name,major,grad_year,desc}) => {
+const StudentComponent = ({name,major,grad_year,desc}) => {
   return (
     <Card>
         <Card.Body>
@@ -18,4 +18,4 @@ const TutorComponent = ({name,major,grad_year,desc}) => {
   )
 }
 
-export default TutorComponent
+export default StudentComponent
