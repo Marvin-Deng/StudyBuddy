@@ -5,13 +5,12 @@ import dotenv from 'dotenv'
 dotenv.config({ path: '../.env' })
 
 const dropTableIfExists = `
-    DROP TABLE IF EXISTS tutor_groups;
-    DROP TABLE IF EXISTS tutor_classes;
+    DROP TABLE IF EXISTS student_study_groups;
+    DROP TABLE IF EXISTS study_groups;
     DROP TABLE IF EXISTS student_classes;
-    DROP TABLE IF EXISTS users;
     DROP TABLE IF EXISTS students;
-    DROP TABLE IF EXISTS tutors;
     DROP TABLE IF EXISTS classes;
+    DROP TABLE IF EXISTS users;
 `
 
 const deleteTables = async () => {

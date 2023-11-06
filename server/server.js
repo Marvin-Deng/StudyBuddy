@@ -1,15 +1,17 @@
-import StudentRoute from './routes/StudentRoute.js'
 import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import passport from 'passport'
 import session from 'express-session'
 import { Github } from './config/auth.js'
-import authRoutes from './routes/AuthRoute.js'
+import AuthRoute from './routes/AuthRoute.js'
+import StudentRoute from './routes/StudentRoute.js'
+import GroupRoute from './routes/GroupRoute.js'
 
 dotenv.config()
 
 const app = express()
+app.use(express.json())
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
@@ -22,7 +24,6 @@ app.use(cors({
     credentials: true
 }))
 
-app.use(express.json())
 app.use(passport.initialize())
 app.use(passport.session())
 
@@ -36,12 +37,9 @@ passport.deserializeUser((user, done) => {
     done(null, user)
 })
 
-app.get('/', (req, res) => {
-    res.redirect('https://localhost:5173')
-})
-
-app.use('./auth', authRoutes)
+app.use('/auth', AuthRoute)
 app.use('/student', StudentRoute)
+app.use('/group', GroupRoute)
 
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
