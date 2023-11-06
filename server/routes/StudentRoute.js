@@ -3,8 +3,8 @@ import StudentView from '../views/StudentView.js'
 
 const router = express.Router()
 
-router.get('/getAll', (req, res) => {
-    StudentView.getAllStudents(req, res)
-});
+router.get('/getAll', StudentView.getAllStudents)
+router.post('/joinGroup', StudentView.joinStudyGroup)
+router.delete('/leaveGroup', StudentView.leaveStudyGroup)
 
 export default router

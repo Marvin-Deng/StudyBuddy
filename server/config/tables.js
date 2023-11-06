@@ -15,30 +15,31 @@ const createStudentTableQuery = `
         name VARCHAR(50) NOT NULL,
         school VARCHAR(255) NOT NULL,
         email VARCHAR(255) NOT NULL,
-        phone_number INTEGER,
+        phone_number INT,
         social_media VARCHAR(255),
-        tutor_group_id int,
-        FOREIGN KEY (tutor_group_id) REFERENCES tutor_groups(id)
+        tutor_group_id int
     );
 `
 
-const createTutorTableQuery = `
-    CREATE TABLE IF NOT EXISTS tutors (
-        id SERIAL PRIMARY KEY,
-        name VARCHAR(50) NOT NULL,
-        school VARCHAR(255) NOT NULL,
-        email VARCHAR(255) NOT NULL,
-        phone_number INTEGER,
-        social_media VARCHAR(255)
-    );
-`
-
-const createTutorGroupQuery = `
-    CREATE TABLE IF NOT EXISTS tutor_groups (
+const createStudyGroupQuery = `
+    CREATE TABLE IF NOT EXISTS study_groups (
         id SERIAL PRIMARY KEY,
         name VARCHAR(100) NOT NULL,
-        tutor_id INT,       
-        FOREIGN KEY (tutor_id) REFERENCES tutors(id) 
+        description VARCHAR(255),
+        location VARCHAR(255) NOT NULL,
+        time VARCHAR(100) NOT NULL,
+        class_id INT,
+        FOREIGN KEY (class_id) REFERENCES classes(id)
+    );
+`
+
+const createStudentStudyGroupQuery = `
+    CREATE TABLE IF NOT EXISTS student_study_groups (
+        id SERIAL PRIMARY KEY,
+        student_id INT NOT NULL,
+        group_id INT NOT NULL,
+        FOREIGN KEY (student_id) REFERENCES students(id),
+        FOREIGN KEY (group_id) REFERENCES study_groups(id)
     );
 `
 
@@ -46,35 +47,26 @@ const createClassTableQuery = `
     CREATE TABLE IF NOT EXISTS classes (
         id SERIAL PRIMARY KEY,
         name VARCHAR(100) NOT NULL,
-        subject VARCHAR(255) NOT NULL
+        subject VARCHAR(100) NOT NULL,
+        professor VARCHAR(100) NOT NULL
     );
 `
 
 const createStudentClassTableQuery = `
     CREATE TABLE IF NOT EXISTS student_classes (
         id SERIAL PRIMARY KEY,
-        student_id INT,
-        class_id INT,
+        student_id INT NOT NULL,
+        class_id INT NOT NULL,
         FOREIGN KEY (student_id) REFERENCES students(id),
         FOREIGN KEY (class_id) REFERENCES classes(id)
     );
 `
 
-const createTutorClassTableQuery = `
-    CREATE TABLE IF NOT EXISTS tutor_classes (
-        id SERIAL PRIMARY KEY,
-        student_id INT,
-        class_id INT,
-        FOREIGN KEY (student_id) REFERENCES students(id),
-        FOREIGN KEY (class_id) REFERENCES classes(id)
-    );
-`
 export const createTableQueries = [
     createUserTableQuery,
-    createTutorTableQuery,
-    createClassTableQuery,
-    createTutorGroupQuery,
     createStudentTableQuery,
-    createTutorClassTableQuery,
-    createStudentClassTableQuery,
-];
+    createClassTableQuery,
+    createStudyGroupQuery,
+    createStudentStudyGroupQuery,
+    createStudentClassTableQuery
+]
