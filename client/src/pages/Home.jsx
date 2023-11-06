@@ -3,7 +3,7 @@ import ViewStudents from '../components/ViewStudents'
 const Home = () => {
   return (
     <>
-    <h1>HOMEPAGE</h1>
+    {/* <h1>HOMEPAGE</h1> */}
     <ViewStudents/>
     </>
   )

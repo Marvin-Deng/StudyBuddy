@@ -27,7 +27,7 @@ const ViewStudents = () => {
         <Row> 
             {mockData.map((tutor) => {
               return (<Col key={tutor.id} sm={12} md={6} lg={6}>
-              <TutorComponent name={tutor.name} major={tutor.major} grad_year={tutor.grad_year} desc="PLACEHOLDER DESCRIPTION"/>
+              <TutorComponent name={tutor.name} major={tutor.major} grad_year={tutor.grad_year} desc="Needs help with classes"/>
                 </Col>  )
             })}
             
