@@ -30,7 +30,7 @@ Many university students struggle with their classes but don't know who to ask. 
 
 [gif goes here]
 
-### Summary of students   [x]
+### Summary of students ✅
 - Displays all students who need help with a subject
 
 
