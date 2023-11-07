@@ -25,8 +25,8 @@ Many university students struggle with their classes but don't know who to ask. 
 
 ## Features
 
-### Profile of students []
-- Students have a profile page displaying their name, school, subjects their interested in, and methods of contact.
+### Profile of students ✅
+- Students have a profile page information about them
 
 [gif goes here]
 
