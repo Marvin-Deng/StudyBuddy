@@ -9,7 +9,7 @@ const ViewAllStudents = () => {
         const fetchAllStudents = async() => {
             setLoading(true)
             const response = await fetch('http://localhost:3001/student/getAll')
-            if (response.status == 404){
+            if (response.status != 200){
                 setError(true)
             } else {
                 const data = await response.json()

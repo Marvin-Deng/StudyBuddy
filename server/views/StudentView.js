@@ -2,6 +2,17 @@ import StudentController from "../controllers/StudentController.js"
 
 class StudentView {
 
+    static async getOne(req, res) {
+        const student_id = parseInt(req.params.student_id)
+        try {
+            const results = await StudentController.getOne(student_id)
+            res.status(200).json(results)
+        }
+        catch (error) {
+            res.status(500).json({ error: error.message })
+        }
+    }
+
     static async getAllStudents(req, res) {
         try {
             const results = await StudentController.getAllStudents()
