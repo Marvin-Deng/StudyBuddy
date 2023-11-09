@@ -1,33 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {Row,Col,Container} from 'react-bootstrap';
-import TutorComponent from './StudentComponent';
-const ViewStudents = () => {
-    const mockData = [
-        {
-            id: 1,
-            name: "Patrick B",
-            major: "Computer Science",
-            grad_year: 2026
-        },
-        {
-            id: 2,
-            name: "Marvin D",
-            major: "Computer Science",
-            grad_year: 2026
-        }, 
-        {
-            id: 3,
-            name: "John S",
-            major: "Chemistry",
-            grad_year: 2025
-        }
-    ]
+import StudentComponent from './StudentComponent';
+const ViewStudents = ({students}) => {
+    useEffect(() => {console.log(students)})
+
   return (
     <Container>
         <Row> 
-            {mockData.map((tutor) => {
-              return (<Col key={tutor.id} sm={12} md={6} lg={6}>
-              <TutorComponent name={tutor.name} major={tutor.major} grad_year={tutor.grad_year} desc="Needs help with classes"/>
+            {students && students.map((student) => {
+              return (<Col key={student.id} sm={12} md={6} lg={6}>
+              <StudentComponent id={student.id} name={student.name} major={student.major} grad_year={student.grad_year} social_media={student.social_media} phone_number={student.phone_number}/>
                 </Col>  )
             })}
             

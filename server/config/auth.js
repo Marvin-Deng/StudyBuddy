@@ -17,7 +17,7 @@ const verify = async(accessToken, refreshToken, profile, callback) => {
 
     try {
         const results = await pool.query('SELECT * FROM users WHERE username = $1', [userData.username])
-        const user = reuslts.row(0)
+        const user = results.row(0)
 
         if (!user) {
             const results = await pool.query(

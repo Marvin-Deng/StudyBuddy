@@ -2,6 +2,15 @@ import { pool } from '../config/db.js'
 
 class StudentController {
 
+    static async getOne(id) {
+        try {
+            const results = await pool.query('SELECT * FROM students WHERE id = $1',[id])
+            return results.rows
+        }
+        catch (error) {
+            return { success: false, message: 'An error occurred: ' + error.message }
+        }
+    }
     static async getAllStudents() {
         try {
             const results = await pool.query('SELECT * FROM students')

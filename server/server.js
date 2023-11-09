@@ -3,20 +3,20 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 import passport from 'passport'
 import session from 'express-session'
-import { Github } from './config/auth.js'
-import AuthRoute from './routes/AuthRoute.js'
+// import { Github } from './config/auth.js'
+// import AuthRoute from './routes/AuthRoute.js'
 import StudentRoute from './routes/StudentRoute.js'
 import GroupRoute from './routes/GroupRoute.js'
-
+import ClassRoute from './routes/ClassRoute.js'
 dotenv.config()
 
 const app = express()
 app.use(express.json())
 
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false
-}))
+// app.use(session({
+//     secret: process.env.SESSION_SECRET,
+//     resave: false
+// }))
 
 app.use(cors({
     origin: 'http://localhost:5173',
@@ -24,22 +24,23 @@ app.use(cors({
     credentials: true
 }))
 
-app.use(passport.initialize())
-app.use(passport.session())
+// app.use(passport.initialize())
+// app.use(passport.session())
 
-passport.use(Github)
+// passport.use(Github)
 
-passport.serializeUser((user, done) => {
-    done(null, user)
-})
+// passport.serializeUser((user, done) => {
+//     done(null, user)
+// })
 
-passport.deserializeUser((user, done) => {
-    done(null, user)
-})
+// passport.deserializeUser((user, done) => {
+//     done(null, user)
+// })
 
-app.use('/auth', AuthRoute)
+// app.use('/auth', AuthRoute)
 app.use('/student', StudentRoute)
 app.use('/group', GroupRoute)
+app.use('/class',ClassRoute)
 
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {

@@ -1,6 +1,7 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
-const StudentComponent = ({name,major,grad_year,desc}) => {
+import { Card, Button } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
+const StudentComponent = ({id,name,major,grad_year,social_media,phone_number}) => {
   return (
     <Card>
         <Card.Body>
@@ -8,11 +9,14 @@ const StudentComponent = ({name,major,grad_year,desc}) => {
                 {name}
             </Card.Title>
             <Card.Subtitle>
-                {major} - {grad_year}
+                {major} (Graduating {grad_year})
             </Card.Subtitle>
             <Card.Text>
-                {desc}
+                {social_media} - {phone_number}
             </Card.Text>
+            <LinkContainer to={`student/${id}`}>
+                    <Button>View profile</Button>
+            </LinkContainer>
         </Card.Body>
     </Card>
   )
