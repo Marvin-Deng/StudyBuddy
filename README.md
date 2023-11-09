@@ -35,6 +35,11 @@ Many university students struggle with their classes but don't know who to ask. 
 
 
 ![de96171036e0fdd6624a554033ef597d](https://github.com/Marvin-Deng/TutorMe/assets/41402962/7a6be364-4ea0-4e78-b7b5-36fba2eb0f72)
+### Students can classes   []
+- Students will add classes with the information such as the name and the professor of the class
+
+### Students can join classes   []
+- Students can join an existing class
 
 ### Students can create student groups   []
 - Students will create groups with limited slots. Students can view, join, or leave any open groups.
