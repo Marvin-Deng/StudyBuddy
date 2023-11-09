@@ -19,15 +19,10 @@ const ViewAllStudents = () => {
                     setError(true)
                     setStudents(null)
                 }
-                
-                
                 console.log(data)
             }
             setLoading(false)
             }
-            
-            
-
         fetchAllStudents()
     
     },[])

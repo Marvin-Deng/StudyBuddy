@@ -7,7 +7,7 @@ import session from 'express-session'
 // import AuthRoute from './routes/AuthRoute.js'
 import StudentRoute from './routes/StudentRoute.js'
 import GroupRoute from './routes/GroupRoute.js'
-
+import ClassRoute from './routes/ClassRoute.js'
 dotenv.config()
 
 const app = express()
@@ -40,6 +40,7 @@ app.use(cors({
 // app.use('/auth', AuthRoute)
 app.use('/student', StudentRoute)
 app.use('/group', GroupRoute)
+app.use('/class',ClassRoute)
 
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {

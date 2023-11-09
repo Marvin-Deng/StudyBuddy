@@ -17,13 +17,13 @@ const createStudentTableQuery = `
         email VARCHAR(255) NOT NULL,
         grad_year INT,
         major VARCHAR(255),
-        phone_number VARCHAR(255),
+        phone_number BIGINT,
         social_media VARCHAR(255),
         tutor_group_id int
     );
 `
 const createPlaceholderStudentQuery = `
-INSERT INTO students (name,school,email,grad_year,major,phone_number,social_media,tutor_group_id) VALUES ('Pat','USF','patbied@gmail.com',2026,'Computer Science', '9419998419', 'Insta', 1);`
+INSERT INTO students (name,school,email,grad_year,major,phone_number,social_media,tutor_group_id) VALUES ('Pat','USF','patbied@gmail.com',2026,'Computer Science', 9419998419, 'Insta', 1);`
 
 const createStudyGroupQuery = `
     CREATE TABLE IF NOT EXISTS study_groups (
@@ -56,6 +56,9 @@ const createClassTableQuery = `
     );
 `
 
+const createPlaceholderClassQuery = `
+INSERT INTO classes (name,subject,professor) VALUES ('Computer Organization','CDA 3103','Yan Zhang');`
+
 const createStudentClassTableQuery = `
     CREATE TABLE IF NOT EXISTS student_classes (
         id SERIAL PRIMARY KEY,
@@ -73,5 +76,6 @@ export const createTableQueries = [
     createStudyGroupQuery,
     createStudentStudyGroupQuery,
     createStudentClassTableQuery,
+    createPlaceholderClassQuery,
     createPlaceholderStudentQuery
 ]

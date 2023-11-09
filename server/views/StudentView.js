@@ -3,8 +3,9 @@ import StudentController from "../controllers/StudentController.js"
 class StudentView {
 
     static async getOne(req, res) {
-        const student_id = parseInt(req.params.student_id)
+        
         try {
+            const student_id = parseInt(req.params.student_id)
             const results = await StudentController.getOne(student_id)
             res.status(200).json(results)
         }
