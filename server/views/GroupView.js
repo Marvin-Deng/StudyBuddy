@@ -2,6 +2,17 @@ import GroupController from "../controllers/GroupController.js"
 
 class GroupView {
 
+    static async getStudyGroupById(req, res) {
+        try {
+            const group_id = parseInt(req.params.group_id)
+            const results = await GroupController.getStudyGroupById(group_id)
+            res.status(200).json(results)
+        }
+        catch (error) {
+            res.status(500).json({ error: error.message })
+        }
+    }
+
     static async getStudyGroups(req, res) {
         try {
             const results = await GroupController.getStudyGroups();
