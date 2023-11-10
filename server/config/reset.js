@@ -33,8 +33,8 @@ const resetDatabase = async () => {
         try {
             await executeQuery(query)
         } 
-        catch (error) {
-            console.error('Query execution failed:', error.message)
+        catch (err) {
+            throw new Error('Query execution failed:', err.message)
         }
     }
 };
