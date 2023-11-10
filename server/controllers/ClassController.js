@@ -3,8 +3,9 @@ import { pool } from '../config/db.js'
 class ClassController {
     static async createClass(name,subject,professor){
         try {
-            const query = `INSERT INTO classes (name,subject,professor)
-            values $1,$2,$3 RETURNING *
+            const query = `
+                INSERT INTO classes (name, subject, professor)
+                VALUES $1,$2,$3 RETURNING *
             ` 
             const result = await pool.query(query, [name, subject, professor])
 

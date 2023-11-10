@@ -2,6 +2,16 @@ import { pool } from '../config/db.js'
 
 class GroupController {
 
+    static async getStudyGroups() {
+        try {
+            const results = await pool.query('SELECT * FROM study_groups')
+            return results.rows
+        }
+        catch (error) {
+            return { success: false, message: 'An error occurred: ' + error.message }
+        }
+    }
+
     static async createStudyGroup(name, location, time, description) {
         try {
             const query = `

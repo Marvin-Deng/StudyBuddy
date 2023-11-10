@@ -3,6 +3,7 @@ import GroupView from '../views/GroupView.js'
 
 const router = express.Router()
 
+router.get('/getAll', GroupView.getStudyGroups);
 router.post('/createGroup', GroupView.createStudyGroup);
 router.patch('/updateGroup', GroupView.updateStudyGroup);
 router.delete('/deleteGroup', GroupView.deleteStudyGroup);

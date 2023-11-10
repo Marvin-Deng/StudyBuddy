@@ -40,7 +40,7 @@ app.use(cors({
 // app.use('/auth', AuthRoute)
 app.use('/student', StudentRoute)
 app.use('/group', GroupRoute)
-app.use('/class',ClassRoute)
+app.use('/class', ClassRoute)
 
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
