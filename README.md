@@ -27,15 +27,17 @@ Many university students struggle with their classes but don't know who to ask. 
 
 ### Profile of students ✅
 - Students have a profile page information about them
-
-[gif goes here]
+![personal_profile](https://github.com/Marvin-Deng/TutorMe/assets/41402962/23661b90-24c8-4d5d-ac85-2126347b4264)
 
 ### Summary of students ✅
 - Displays all students who need help with a subject
-
-
 ![de96171036e0fdd6624a554033ef597d](https://github.com/Marvin-Deng/TutorMe/assets/41402962/7a6be364-4ea0-4e78-b7b5-36fba2eb0f72)
-### Students can classes   []
+
+### Students can view classes ✅
+- Students can view all of the available classes
+![view_all_classes](https://github.com/Marvin-Deng/TutorMe/assets/41402962/75a525dd-da8d-457d-bc22-5c87c9e1c1c3)
+
+### Students can create classes   []
 - Students will add classes with the information such as the name and the professor of the class
 
 ### Students can join classes   []
