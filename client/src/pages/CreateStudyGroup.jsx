@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
-import InputForm from "../components/InputForm";
 import { useNavigate } from "react-router-dom";
 import { showToast } from "../utils/toastUtils";
+import InputForm from "../components/InputForm";
 
 const CreateStudyGroup = () => {
   const navigate = useNavigate();
@@ -45,10 +45,7 @@ const CreateStudyGroup = () => {
           "error"
         );
       } else {
-        showToast(
-          "Study group created!",
-          "success"
-        );
+        showToast("Study group created!", "success");
         navigate("/studyGroups");
       }
     } catch (error) {

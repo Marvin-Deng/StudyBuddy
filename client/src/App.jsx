@@ -1,18 +1,18 @@
 import "./App.css";
-import NavbarComponent from "./components/NavbarComponent";
 import { useRoutes } from "react-router-dom";
-import ViewAllStudents from "./pages/ViewAllStudents";
+import NavbarComponent from "./components/NavbarComponent";
+import StudentsPage from "./pages/StudentsPage";
 import StudentProfile from "./pages/StudentProfile";
 import CreateStudyGroup from "./pages/CreateStudyGroup";
 import CreateClass from "./pages/CreateClass";
-import Classes from "./pages/Classes";
-import StudyGroups from "./pages/StudyGroups";
+import ClassesPage from "./pages/ClassesPage";
+import StudyGroupsPage from "./pages/StudyGroupsPage";
 
 function App() {
   let subpages = useRoutes([
     {
       path: "/",
-      element: <ViewAllStudents />,
+      element: <StudentsPage />,
     },
     {
       path: "/student/:id",
@@ -20,11 +20,11 @@ function App() {
     },
     {
       path: "/studyGroups",
-      element: <StudyGroups />,
+      element: <StudyGroupsPage />,
     },
     {
       path: "/classes",
-      element: <Classes />,
+      element: <ClassesPage />,
     },
     {
       path: "/studyGroups/createGroup",
