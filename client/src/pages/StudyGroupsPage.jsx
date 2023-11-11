@@ -14,6 +14,7 @@ const StudyGroupsPage = () => {
         setError(true);
       } else {
         const data = await response.json();
+        // console.log(data)
         if (data) {
           setGroups(data);
         } else {
@@ -52,6 +53,7 @@ const StudyGroupsPage = () => {
                   description={group.description}
                   location={group.location}
                   time={group.time}
+                  class_id={group.class_id}
                 />
               </Col>
             );
