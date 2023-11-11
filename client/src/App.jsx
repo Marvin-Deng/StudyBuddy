@@ -23,17 +23,18 @@ function App() {
       element: <StudyGroupsPage />,
     },
     {
-      path: "/classes",
-      element: <ClassesPage />,
-    },
-    {
       path: "/studyGroups/createGroup",
       element: <CreateStudyGroup />,
+    },
+    {
+      path: "/classes",
+      element: <ClassesPage />,
     },
     {
       path: "/classes/createClass",
       element: <CreateClass />,
     },
+    
   ]);
 
   return (
