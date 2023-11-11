@@ -22,7 +22,6 @@ const StudyGroups = () => {
           setError(true);
           setGroups(null);
         }
-        console.log(data);
       }
       setLoading(false);
     };
@@ -40,7 +39,7 @@ const StudyGroups = () => {
         </Row>
         <Row>
           <Col>
-            <LinkContainer to="/">
+            <LinkContainer to="/studyGroups/createGroup">
               <Button variant="primary">Create Group</Button>
             </LinkContainer>
           </Col>
