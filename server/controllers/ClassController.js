@@ -5,7 +5,7 @@ class ClassController {
         try {
             const query = `
                 INSERT INTO classes (name, subject, professor)
-                VALUES $1,$2,$3 RETURNING *
+                VALUES ($1,$2,$3);
             ` 
             const result = await pool.query(query, [name, subject, professor])
 
@@ -22,7 +22,7 @@ class ClassController {
 
     static async getClasses(){
         try {
-            const query = "SELECT * FROM classes"
+            const query = "SELECT * FROM classes;"
             const result = await pool.query(query)
             return result.rows
         } catch (error) {
