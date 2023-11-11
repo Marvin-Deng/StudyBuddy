@@ -7,10 +7,11 @@ const GroupComponent = ({ id, name, description, location, time }) => {
       <Card.Body>
         <Card.Title>{name}</Card.Title>
         <Card.Text>
-          <p>
+          <span className="mb-3">
             {location} - {time}
-          </p>
-          <p>{description}</p>
+          </span>
+          <br/>
+          <span className="mb-3">{description}</span>
         </Card.Text>
         <LinkContainer to={`class/join/${id}`}>
           <Button>Join Group</Button>
