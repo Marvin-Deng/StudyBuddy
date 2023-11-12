@@ -34,7 +34,7 @@ const ClassesPage = () => {
       </Row>
       <Row>
         <Col>
-          <LinkContainer to="/classes/createClass">
+          <LinkContainer to="/createClass">
             <Button variant="primary">Create Class</Button>
           </LinkContainer>
         </Col>

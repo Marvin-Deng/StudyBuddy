@@ -12,18 +12,18 @@ function App() {
   let subpages = useRoutes([
     {
       path: "/",
-      element: <StudentsPage />,
+      element: <StudyGroupsPage />,
     },
     {
       path: "/student/:id",
       element: <StudentProfile />,
     },
     {
-      path: "/studyGroups",
-      element: <StudyGroupsPage />,
+      path: "/students",
+      element: <StudentsPage />,
     },
     {
-      path: "/studyGroups/createGroup",
+      path: "/createGroup",
       element: <CreateStudyGroup />,
     },
     {
@@ -31,7 +31,7 @@ function App() {
       element: <ClassesPage />,
     },
     {
-      path: "/classes/createClass",
+      path: "/createClass",
       element: <CreateClass />,
     },
     

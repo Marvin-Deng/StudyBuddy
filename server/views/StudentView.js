@@ -24,6 +24,20 @@ class StudentView {
         }
     }
 
+    static async filterStudents(req, res) {
+        try {
+            const searchString  = req.params.search_string
+            if (!searchString) {
+                return res.status(400).json({ error: 'search_string is required as a route parameter' })
+            }
+            const results = await StudentController.filterStudents(searchString)
+            res.status(200).json(results)
+        }
+        catch (error) {
+            res.status(500).json({ error: error.message })
+        }
+    }
+    
     static async joinStudyGroup(req, res) {
         try {
             const { studentId, groupId } = req.body;

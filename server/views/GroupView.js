@@ -15,7 +15,8 @@ class GroupView {
 
     static async getStudyGroups(req, res) {
         try {
-            const results = await GroupController.getStudyGroups();
+            const search_string = req.body
+            const results = await GroupController.getStudyGroups(search_string);
             res.status(200).json(results)
         }
         catch (error) {
