@@ -25,6 +25,16 @@ class ClassView{
             res.status(500).json({ error: error.message })
         }
     }
+    
+    static async getClassByID(req, res){
+        try {
+            const {class_id} = req.params
+            const results = await ClassController.getClassByID(class_id)
+            res.status(200).json(results)
+        } catch (error) {
+            res.status(500).json({ error: error.message })
+        }
+    }
 }
 
 export default ClassView

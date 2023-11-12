@@ -25,13 +25,15 @@ class GroupView {
 
     static async createStudyGroup(req, res) {
         try {
-            const { name, location, time, description } = req.body;
+            const { name, location, time, description, class_id } = req.body;
+            console.log(class_id)
+            console.log(typeof(class_id))
 
             if (!name || !location || !time) {
                 return res.status(400).json({ error: 'Name, location, and time are required fields.' });
             }
 
-            const results = await GroupController.createStudyGroup(name, location, time, description);
+            const results = await GroupController.createStudyGroup(name, location, time, description, class_id);
             res.status(200).json(results)
         }
         catch (error) {

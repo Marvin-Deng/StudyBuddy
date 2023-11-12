@@ -22,13 +22,13 @@ class GroupController {
         }
     }
 
-    static async createStudyGroup(name, location, time, description) {
+    static async createStudyGroup(name, location, time, description, class_id) {
         try {
             const query = `
-                INSERT INTO study_groups (name, description, location, time)
-                VALUES ($1, $2, $3, $4);
+                INSERT INTO study_groups (name, description, location, time, class_id)
+                VALUES ($1, $2, $3, $4, $5);
             `
-            const result = await pool.query(query, [name, description, location, time])
+            const result = await pool.query(query, [name, description, location, time, class_id])
 
             if (result.rowCount === 1) {
                 return { success: true, message: 'Study group created.' }
