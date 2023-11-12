@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { AppContext } from "../contexts/AppContext";
 import StudentComponent from "../components/StudentComponent";
 
 const StudentsPage = () => {
   const [students, setStudents] = useState();
   const [error, setError] = useState(false);
+  const { searchResults } = useContext(AppContext);
 
   useEffect(() => {
     const fetchAllStudents = async () => {
@@ -21,8 +23,13 @@ const StudentsPage = () => {
         }
       }
     };
-    fetchAllStudents();
-  }, []);
+
+    if (searchResults && searchResults.length > 0) {
+      setStudents(searchResults);
+    } else {
+      fetchAllStudents();
+    }
+  }, [searchResults]);
 
   return (
     <Container>

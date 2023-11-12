@@ -30,13 +30,11 @@ const StudyGroupsPage = () => {
     <Container>
       {error && <h2>Error</h2>}
       <Row className="text-center">
-        <Col>
-          <h2>Groups</h2>
-        </Col>
+        <h2>Groups</h2>
       </Row>
       <Row>
         <Col>
-          <LinkContainer to="/studyGroups/createGroup">
+          <LinkContainer to="/createGroup">
             <Button variant="primary">Create Group</Button>
           </LinkContainer>
         </Col>
