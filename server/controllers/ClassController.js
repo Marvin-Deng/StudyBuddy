@@ -29,6 +29,16 @@ class ClassController {
             return { success: false, message: 'An error occurred: ' + error.message }
         }
     }
+    
+    static async getClassByID(class_id){
+        try {
+            const query = `SELECT * FROM classes where id = $1`
+            const results = await pool.query(query,[class_id])
+            return results.rows
+        } catch (error) {
+            return { success: false, message: 'An error occurred: ' + error.message }
+        }
+    }
 }   
 
 
