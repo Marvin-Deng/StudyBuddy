@@ -67,7 +67,7 @@ const CreateStudyGroup = () => {
         const data = await response.json()
         console.log(data)
         showToast("Study group created!", "success");
-        navigate("/studyGroups");
+        navigate("/");
       }
     } catch (error) {
       showToast(
