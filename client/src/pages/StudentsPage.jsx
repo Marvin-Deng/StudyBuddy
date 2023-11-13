@@ -6,7 +6,7 @@ import StudentComponent from "../components/StudentComponent";
 const StudentsPage = () => {
   const [students, setStudents] = useState();
   const [error, setError] = useState(false);
-  const { searchResults } = useContext(AppContext);
+  const { studentSearchResults } = useContext(AppContext);
 
   useEffect(() => {
     const fetchAllStudents = async () => {
@@ -24,12 +24,12 @@ const StudentsPage = () => {
       }
     };
 
-    if (searchResults && searchResults.length > 0) {
-      setStudents(searchResults);
+    if (studentSearchResults && studentSearchResults.length > 0) {
+      setStudents(studentSearchResults);
     } else {
       fetchAllStudents();
     }
-  }, [searchResults]);
+  }, [studentSearchResults]);
 
   return (
     <Container>

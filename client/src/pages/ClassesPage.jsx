@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { AppContext } from "../contexts/AppContext";
 import ClassComponent from "../components/ClassComponent";
 
 const ClassesPage = () => {
   const [classes, setClasses] = useState([]);
   const [error, setError] = useState(false);
+  const { classSearchResults } = useContext(AppContext);
 
   useEffect(() => {
     const fetchAllClasses = async () => {
@@ -22,7 +24,13 @@ const ClassesPage = () => {
       }
     };
     fetchAllClasses();
-  }, []);
+
+    if (classSearchResults && classSearchResults.length > 0) {
+      setClasses(classSearchResults);
+    } else {
+      fetchAllClasses();
+    }
+  }, [classSearchResults]);
 
   return (
     <Container>
