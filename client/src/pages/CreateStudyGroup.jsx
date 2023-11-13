@@ -21,10 +21,7 @@ const CreateStudyGroup = () => {
     const getAllClasses = async() => {
       const response = await fetch('http://localhost:3001/class/getAll')
       const data = await response.json()
-      // console.log(data)
       setClasses(data)
-      //By default the class_id will be equal to the ID of the first element found in classes
-      //I would set this to ID 1 but if that class is deleted this would cause errors
       setFormData((prevFormData) => ({
         ...prevFormData,
         class_id: data[0].id,
@@ -65,7 +62,6 @@ const CreateStudyGroup = () => {
         );
       } else {
         const data = await response.json()
-        console.log(data)
         showToast("Study group created!", "success");
         navigate("/");
       }

@@ -1,11 +1,12 @@
 import { LinkContainer } from "react-router-bootstrap";
 import { Nav } from "react-bootstrap";
 
-const NavLink = ({ route, name }) => {
+const NavLink = ({ route, name, handleCategoryChange}) => {
   return (
     <LinkContainer to={route}>
       <Nav.Link
         className="mx-3 fs-5 fw-bold position-relative"
+        onClick={() => handleCategoryChange(name)}
         style={{
           position: "relative",
           color: "#000", 
