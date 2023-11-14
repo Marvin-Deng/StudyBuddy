@@ -7,7 +7,7 @@ import CreateStudyGroup from "./pages/CreateStudyGroup";
 import CreateClass from "./pages/CreateClass";
 import ClassesPage from "./pages/ClassesPage";
 import StudyGroupsPage from "./pages/StudyGroupsPage";
-
+import JoinGroup from "./pages/JoinGroup";
 function App() {
   let subpages = useRoutes([
     {
@@ -34,6 +34,10 @@ function App() {
       path: "/createClass",
       element: <CreateClass />,
     },
+    {
+      path: '/joinGroup/:id',
+      element: <JoinGroup/>
+    }
     
   ]);
 

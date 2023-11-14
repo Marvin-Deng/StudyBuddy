@@ -27,7 +27,7 @@ const GroupComponent = ({ id, name, description, location, time,class_id }) => {
           <br/>
           <span className="mb-3">{description}</span>
         </Card.Text>
-        <LinkContainer to={`class/join/${id}`}>
+        <LinkContainer to={`joinGroup/${id}`}>
           <Button>Join Group</Button>
         </LinkContainer>
       </Card.Body>
