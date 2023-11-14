@@ -48,16 +48,14 @@ const JoinGroup = () => {
         e.preventDefault()
         try {
             const response = await fetch(`http://localhost:3001/student/joinGroup`, requestOptions)
-            if (!response.ok) {
-              const data = await response.json()
-              console.log(data)
+            const data = await response.json()
+            console.log(data)
+            if (!response.ok || data.success == false) {
               showToast(
-                "An error occured while joining.",
+                data.message,
                 "error"
               );
             } else {
-              const data = await response.json()
-              console.log(data)
               showToast("Class joined!", "success");
               Navigate("/");
             }
