@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
-const GroupComponent = ({ id, name, description, location, time,class_id }) => {
+const GroupComponent = ({ id, name, description, location, time,class_id, detailedView }) => {
   const [class_,setClass_] = useState({})
   useEffect(() => {
     const getClassByID = async() => {
@@ -27,9 +27,24 @@ const GroupComponent = ({ id, name, description, location, time,class_id }) => {
           <br/>
           <span className="mb-3">{description}</span>
         </Card.Text>
-        <LinkContainer to={`joinGroup/${id}`}>
-          <Button>Join Group</Button>
+        {!detailedView && (
+          <>
+          <LinkContainer className="m-1" to={`joinGroup/${id}`}>
+            <Button>Join Group</Button>
+          </LinkContainer>
+          <LinkContainer className="m-1" to={`/${id}`}>
+            <Button>View Group</Button>
+          </LinkContainer>
+          </>
+        )}
+        <LinkContainer className="m-1" to={`editGroup/${id}`}>
+            <Button>Edit Group</Button>
         </LinkContainer>
+        <LinkContainer className="m-1" to={`deleteGroup/${id}`}>
+            <Button>Delete Group</Button>
+        </LinkContainer>
+
+        
       </Card.Body>
     </Card>
   );

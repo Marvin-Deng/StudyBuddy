@@ -9,11 +9,16 @@ import ClassesPage from "./pages/ClassesPage";
 import StudyGroupsPage from "./pages/StudyGroupsPage";
 import JoinGroup from "./pages/JoinGroup";
 import { CreateStudent } from "./pages/CreateStudent";
+import StudyGroupPage from "./pages/StudyGroupPage";
 function App() {
   let subpages = useRoutes([
     {
       path: "/",
       element: <StudyGroupsPage />,
+    },
+    {
+      path: '/:id',
+      element: <StudyGroupPage/>
     },
     {
       path: "/student/:id",

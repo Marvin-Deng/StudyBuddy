@@ -10,6 +10,12 @@ const ClassComponent = ({ id, name, subject, professor }) => {
         <Card.Text>
           {subject} - {professor}
         </Card.Text>
+        <LinkContainer className="m-1" to={`/classes/editClass/${id}`}>
+            <Button>Edit Class</Button>
+        </LinkContainer>
+        <LinkContainer className="m-1" to={`/classes/deleteClass/${id}`}>
+            <Button>Delete Class</Button>
+        </LinkContainer>
       </Card.Body>
     </Card>
   );

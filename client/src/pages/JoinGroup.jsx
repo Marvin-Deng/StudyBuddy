@@ -3,6 +3,7 @@ import { Container, Button, Row, Spinner, Form, Col } from 'react-bootstrap'
 import { Navigate, useParams } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
 import { showToast } from "../utils/toastUtils";
+import Loader from '../components/Loader';
 const JoinGroup = () => {
     const [group, setGroup] = useState({})
     const [class_, setClass_] = useState({})
@@ -66,9 +67,11 @@ const JoinGroup = () => {
   return (
     <Container>
         {loading ? (
-            <Row className='justify-content-center align-items-center'>
-                <Spinner animation="border" />
-            </Row>
+   
+            <Loader isLoading={loading}/>
+
+        
+            
             
         ) : (
             <>

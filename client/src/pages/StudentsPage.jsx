@@ -2,14 +2,16 @@ import { useEffect, useState, useContext } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { AppContext } from "../contexts/AppContext";
 import StudentComponent from "../components/StudentComponent";
-
+import Loader from "../components/Loader";
 const StudentsPage = () => {
   const [students, setStudents] = useState();
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false)
   const { studentSearchResults } = useContext(AppContext);
 
   useEffect(() => {
     const fetchAllStudents = async () => {
+      setLoading(true)
       const response = await fetch("http://localhost:3001/student/getAll");
       if (response.status != 200) {
         setError(true);
@@ -22,6 +24,7 @@ const StudentsPage = () => {
           setStudents(null);
         }
       }
+      setLoading(false)
     };
 
     if (studentSearchResults && studentSearchResults.length > 0) {
@@ -34,6 +37,12 @@ const StudentsPage = () => {
   return (
     <Container>
       {error && <h2>Error</h2>}
+      {loading && <Loader isLoading={loading}/>}
+      {!loading && (
+        <>
+      <Row className="text-center">
+        <h2>Students</h2>
+      </Row>
       <Row>
         {students &&
           students.map((student) => {
@@ -51,6 +60,8 @@ const StudentsPage = () => {
             );
           })}
       </Row>
+      </>
+      )}
     </Container>
   );
 };

@@ -3,14 +3,16 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { AppContext } from "../contexts/AppContext";
 import ClassComponent from "../components/ClassComponent";
-
+import Loader from "../components/Loader";
 const ClassesPage = () => {
   const [classes, setClasses] = useState([]);
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false)
   const { classSearchResults } = useContext(AppContext);
 
   useEffect(() => {
     const fetchAllClasses = async () => {
+      setLoading(true)
       const response = await fetch("http://localhost:3001/class/getAll");
       if (response.status != 200) {
         setError(true);
@@ -22,6 +24,7 @@ const ClassesPage = () => {
           setError(true);
         }
       }
+      setLoading(false)
     };
     fetchAllClasses();
 
@@ -35,6 +38,10 @@ const ClassesPage = () => {
   return (
     <Container>
       {error && <h2>Error</h2>}
+      {loading && <Loader isLoading={loading}/>}
+      {!loading && (
+        <>
+        
       <Row className="text-center">
         <Col>
           <h2>Classes</h2>
@@ -62,6 +69,8 @@ const ClassesPage = () => {
             );
           })}
       </Row>
+      </>
+      )}
     </Container>
   );
 };
