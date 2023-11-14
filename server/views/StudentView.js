@@ -1,7 +1,18 @@
 import StudentController from "../controllers/StudentController.js"
 
 class StudentView {
-
+    static async createStudent(req, res){
+        try {
+            const {name, school, email, grad_year, major, phone_number} = req.body
+            // console.log(name, school, email, grad_year, major, phone_number)\
+            const results = await StudentController.createStudent(name, school, email, grad_year, major, phone_number)
+    
+            res.status(200).json(results)
+        } catch (error) {
+            res.status(500).json({ error: error.message })
+        }
+        
+    }
     static async getOne(req, res) {
         
         try {

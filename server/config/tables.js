@@ -15,9 +15,9 @@ const createStudentTableQuery = `
         name VARCHAR(50) NOT NULL,
         school VARCHAR(255) NOT NULL,
         email VARCHAR(255) NOT NULL,
-        grad_year INT,
+        grad_year VARCHAR(255) NOT NULL,
         major VARCHAR(255),
-        phone_number BIGINT,
+        phone_number VARCHAR(255),
         social_media VARCHAR(255),
         tutor_group_id int
     );

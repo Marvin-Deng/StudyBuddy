@@ -7,6 +7,8 @@ router.get('/getAll', StudentView.getAllStudents)
 router.get('/search/:search_string', StudentView.filterStudents)
 router.get('/:student_id',StudentView.getOne)
 router.post('/joinGroup', StudentView.joinStudyGroup)
+router.post('/createStudent',StudentView.createStudent)
 router.delete('/leaveGroup', StudentView.leaveStudyGroup)
+
 
 export default router
