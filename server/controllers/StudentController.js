@@ -1,6 +1,14 @@
 import { pool } from "../config/db.js";
 
 class StudentController {
+  static async createStudent(name, school, email, grad_year, major, phone_number){
+    try {
+      const results = await pool.query("INSERT INTO STUDENTS (name, school, email, grad_year, major, phone_number) values ($1, $2, $3, $4, $5, $6);", [name, school, email, grad_year, major, phone_number])
+      return results.rows
+    }  catch (error) {
+      return { success: false, message: "An error occurred: " + error.message };
+    }
+  }
   static async getOne(id) {
     try {
       const results = await pool.query("SELECT * FROM students WHERE id = $1", [
