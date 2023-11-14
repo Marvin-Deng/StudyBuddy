@@ -11,7 +11,7 @@ const StudentComponent = ({
   phone_number,
 }) => {
   return (
-    <Card>
+    <Card className="mb-5">
       <Card.Body>
         <Card.Title>{name}</Card.Title>
         <Card.Subtitle>
@@ -20,8 +20,11 @@ const StudentComponent = ({
         <Card.Text>
           {social_media} - {phone_number}
         </Card.Text>
-        <LinkContainer to={`student/${id}`}>
-          <Button>View profile</Button>
+        <LinkContainer to={`/student/${id}`}>
+          <Button className="m-1">View profile</Button>
+        </LinkContainer>
+        <LinkContainer to={`/editStudent/${id}`}>
+          <Button className="m-1">Edit profile</Button>
         </LinkContainer>
       </Card.Body>
     </Card>
