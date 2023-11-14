@@ -23,7 +23,6 @@ const ClassesPage = () => {
         }
       }
     };
-    fetchAllClasses();
 
     if (classSearchResults && classSearchResults.length > 0) {
       setClasses(classSearchResults);
