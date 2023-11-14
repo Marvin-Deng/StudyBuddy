@@ -8,6 +8,7 @@ import CreateClass from "./pages/CreateClass";
 import ClassesPage from "./pages/ClassesPage";
 import StudyGroupsPage from "./pages/StudyGroupsPage";
 import JoinGroup from "./pages/JoinGroup";
+import { CreateStudent } from "./pages/CreateStudent";
 function App() {
   let subpages = useRoutes([
     {
@@ -37,6 +38,10 @@ function App() {
     {
       path: '/joinGroup/:id',
       element: <JoinGroup/>
+    },
+    {
+      path: '/register',
+      element: <CreateStudent/>
     }
     
   ]);
