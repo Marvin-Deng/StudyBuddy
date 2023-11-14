@@ -5,12 +5,15 @@ const AppContext = createContext();
 const AppProvider = ({ children }) => {
   const [studentSearchResults, setStudentSearchResults] = useState([]);
   const [classSearchResults, setClassSearchResults] = useState([]);
+  const [groupSearchResults, setGroupSearchResults] = useState([]);
 
   const updateSearchResults = (results, category) => {
     if (category === "Students") {
       setStudentSearchResults(results);
     } else if (category === "Classes") {
       setClassSearchResults(results);
+    } else if (category === "Study Groups"){
+      setGroupSearchResults(results);
     }
   };
 
@@ -19,6 +22,7 @@ const AppProvider = ({ children }) => {
       value={{
         studentSearchResults,
         classSearchResults,
+        groupSearchResults,
         updateSearchResults,
       }}
     >

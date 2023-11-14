@@ -26,7 +26,6 @@ const ClassesPage = () => {
       }
       setLoading(false)
     };
-    fetchAllClasses();
 
     if (classSearchResults && classSearchResults.length > 0) {
       setClasses(classSearchResults);
