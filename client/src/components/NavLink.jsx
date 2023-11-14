@@ -9,7 +9,6 @@ const NavLink = ({ route, name, handleCategoryChange}) => {
         onClick={() => handleCategoryChange(name)}
         style={{
           position: "relative",
-          color: "#000", 
           overflow: "hidden", 
         }}
         onMouseOver={(e) => {

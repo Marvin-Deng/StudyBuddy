@@ -36,6 +36,12 @@ const NavbarComponent = () => {
     await fetchData(url);
   };
 
+  const filterGroups = async (e) => {
+    e.preventDefault();
+    const url = `http://localhost:3001/group/search/${searchString}`;
+    await fetchData(url);
+  };
+
   const fetchData = async (url) => {
     try {
       const response = await fetch(url);
@@ -44,10 +50,7 @@ const NavbarComponent = () => {
         showToast(`No results found for "${searchString}"`, "error");
       } else {
         updateSearchResults(data, currentCategory);
-        showToast(
-          `Showing results for "${searchString}"`,
-          "success"
-        );
+        showToast(`Showing results for "${searchString}"`, "success");
       }
     } catch (error) {
       showToast(
@@ -63,13 +66,15 @@ const NavbarComponent = () => {
         return await filterStudents(e);
       case "Classes":
         return await filterClasses(e);
+      case "Study Groups":
+        return await filterGroups(e);
       default:
-        return null
+        return null;
     }
   };
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" style={{ backgroundColor: '#FFFFCC' }}>
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand href="#home" className="fs-5 fw-bold">
