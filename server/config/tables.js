@@ -70,7 +70,7 @@ const createStudentClassTableQuery = `
 `
 
 export const createTableQueries = [
-    installExtensions,
+    // installExtensions,
     createUserTableQuery,
     createStudentTableQuery,
     createClassTableQuery,

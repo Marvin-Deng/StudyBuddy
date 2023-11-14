@@ -1,6 +1,7 @@
 import ClassController from "../controllers/ClassController.js";
 
 class ClassView {
+
   static async getClassByID(req, res) {
     try {
       const { class_id } = req.params;

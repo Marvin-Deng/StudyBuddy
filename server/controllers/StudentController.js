@@ -55,6 +55,13 @@ class StudentController {
 
   static async joinStudyGroup(student_id, group_id) {
     try {
+      const existsQuery = `SELECT EXISTS(SELECT 1 FROM student_study_groups where student_id=$1 AND group_id=$2)`
+      const exists = await pool.query(existsQuery,[student_id,group_id])
+      if(exists.rows[0].exists == true){
+        // console.log('exists')
+        return {success: false, message: "This user already belongs to this study group"}
+      } 
+      
       const query = `
                 INSERT INTO student_study_groups (student_id, group_id)
                 VALUES ($1, $2);
