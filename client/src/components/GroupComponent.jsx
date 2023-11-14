@@ -8,7 +8,6 @@ const GroupComponent = ({ id, name, description, location, time,class_id }) => {
     const getClassByID = async() => {
       const response = await fetch(`http://localhost:3001/class/${class_id}`)
       const data = await response.json()
-      // console.log(data[0])
       setClass_(data[0])
     }
     getClassByID()
@@ -28,7 +27,7 @@ const GroupComponent = ({ id, name, description, location, time,class_id }) => {
           <br/>
           <span className="mb-3">{description}</span>
         </Card.Text>
-        <LinkContainer to={`class/join/${id}`}>
+        <LinkContainer to={`joinGroup/${id}`}>
           <Button>Join Group</Button>
         </LinkContainer>
       </Card.Body>

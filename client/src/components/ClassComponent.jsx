@@ -10,9 +10,6 @@ const ClassComponent = ({ id, name, subject, professor }) => {
         <Card.Text>
           {subject} - {professor}
         </Card.Text>
-        <LinkContainer to={`class/join/${id}`}>
-          <Button>Join Class</Button>
-        </LinkContainer>
       </Card.Body>
     </Card>
   );

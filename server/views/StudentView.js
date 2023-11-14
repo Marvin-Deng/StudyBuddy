@@ -50,17 +50,21 @@ class StudentView {
     }
     
     static async joinStudyGroup(req, res) {
+
         try {
             const { studentId, groupId } = req.body;
-
+            const studentIdInt = parseInt(studentId)
+            const groupIdInt = parseInt(groupId)
+            // console.log("student id",studentIdInt,"groupid",groupIdInt)
+            // console.log("student id",typeof(studentIdInt),"groupid",typeof(groupIdInt))
             if (!studentId || !groupId) {
                 return res.status(400).json({ error: 'studentId and groupId are required in the request body.' })
             }
-            else if (!Number.isInteger(studentId) || !Number.isInteger(groupId)) {
+            else if (!Number.isInteger(studentIdInt) || !Number.isInteger(groupIdInt)) {
                 return res.status(400).json({ error: 'studentId and groupId must be integers.' });
             }
 
-            const results = await StudentController.joinStudyGroup(studentId, studyGroupId)
+            const results = await StudentController.joinStudyGroup(studentIdInt, groupIdInt)
             res.status(200).json(results)
         }
         catch (error) {
