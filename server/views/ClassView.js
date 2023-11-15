@@ -35,7 +35,7 @@ class ClassView {
       res.status(500).json({ error: error.message });
     }
   }
-
+  
   static async createClass(req, res) {
     try {
       const { name, subject, professor } = req.body;

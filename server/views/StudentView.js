@@ -4,6 +4,11 @@ class StudentView {
     static async createStudent(req, res){
         try {
             const {name, school, email, grad_year, major, phone_number} = req.body
+            if (!name || !school || !email) {
+                return res
+                  .status(400)
+                  .json({ error: "Name, School, Email and grad year are required fields." });
+              }
             // console.log(name, school, email, grad_year, major, phone_number)\
             const results = await StudentController.createStudent(name, school, email, grad_year, major, phone_number)
     

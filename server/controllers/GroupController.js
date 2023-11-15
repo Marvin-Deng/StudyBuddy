@@ -71,7 +71,20 @@ class GroupController {
       return { success: false, message: "An error occurred: " + error.message };
     }
   }
-
+  static async getStudentsForGroup(groupId){
+    try {
+      const query = `SELECT * FROM students JOIN student_study_groups ON student_study_groups.student_id = students.id AND group_id = $1`
+      const result = await pool.query(query, [groupId])
+      // console.log(result.rows)
+      if (result.rowCount >= 1) {
+        return { success: true, message: "Students fetched.", data: result.rows };
+      } else {
+        return { success: false, message: "No students in this group." };
+      }
+    } catch (error) {
+      return { success: false, message: "An error occurred: " + error.message };
+    }
+  }
   static async updateStudyGroup(groupId, name, location, time, description) {
     try {
       const query = `
