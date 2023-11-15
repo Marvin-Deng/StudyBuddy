@@ -42,7 +42,7 @@ class ClassController {
       return { success: false, message: "An error occurred: " + error.message };
     }
   }
-
+  
   static async createClass(name, subject, professor) {
     try {
       const query = `

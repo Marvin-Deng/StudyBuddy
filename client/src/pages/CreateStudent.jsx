@@ -42,7 +42,7 @@ export const CreateStudent = () => {
           );
           if (!response.ok) {
             showToast(
-              "Invalid input (Class Name, Subject, and Professor are required) ",
+              "Invalid input (Name, School, Email, and Grad Year are required) ",
               "error"
             );
           } else {

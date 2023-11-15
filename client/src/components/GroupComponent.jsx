@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
+import Loader from "./Loader";
 
 const GroupComponent = ({
   id,
@@ -13,11 +14,14 @@ const GroupComponent = ({
   detailedView,
 }) => {
   const [class_, setClass_] = useState({});
+  const [loading, setLoading] = useState(false)
   useEffect(() => {
     const getClassByID = async () => {
+      setLoading(true)
       const response = await fetch(`http://localhost:3001/class/${class_id}`);
       const data = await response.json();
       setClass_(data[0]);
+      setLoading(false)
     };
     getClassByID();
   }, []);
@@ -27,7 +31,14 @@ const GroupComponent = ({
         <Card.Title>{name}</Card.Title>
         <Card.Text>
           <span className="mb-3">
-            {class_ && class_.name} with professor {class_ && class_.professor}
+            {loading ? (
+              <span>Loading class info...</span>
+            ) : (
+              <>
+              {class_ && class_.name} with professor {class_ && class_.professor}
+              </>
+            )}
+            
           </span>
           <br />
           <span className="mb-3">
@@ -47,7 +58,7 @@ const GroupComponent = ({
           </>
         )}
         <Link
-          to={`editGroup/?id=${id}&name=${name}&description=${description}&location=${location}&time=${time}&class_id=${class_id}`}
+          to={`/editGroup/?id=${id}&name=${name}&description=${description}&location=${location}&time=${time}&class_id=${class_id}`}
           className="m-1"
         >
           <Button>Edit Group</Button>
