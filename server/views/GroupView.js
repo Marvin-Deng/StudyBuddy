@@ -34,7 +34,15 @@ class GroupView {
       res.status(500).json({ error: error.message });
     }
   }
-
+  static async getStudentsForGroup(req, res){
+    try {
+      const {id} = req.params
+      const results = await GroupController.getStudentsForGroup(id)
+      res.status(200).json(results);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
   static async createStudyGroup(req, res) {
     try {
       const { name, location, time, description, class_id } = req.body;
