@@ -40,8 +40,6 @@ Many university students struggle with their classes but don't know who to ask. 
 ### Students can create classes   []
 - Students will add classes with the information such as the name and the professor of the class
 
-### Students can join classes   []
-- Students can join an existing class
 
 ### Students can create student groups   []
 - Students will create groups with limited slots. Students can view, join, or leave any open groups.
@@ -51,6 +49,7 @@ Many university students struggle with their classes but don't know who to ask. 
 - Students can edit or delete existing study groups
 
 ### Students can join or leave study groups []
+- Students can choose to either choose an existing user to join/leave a group or be redirected to a new page where they can create a user and then add/leave him from the group
 
 ### Students can decide on meeting time and meeting type   []
 - Students will be able to set day/times for when they want to meet. Additionally, they will be able to decide on how they want to meet (in person vs online) and if the choice is online, then add a link to the calls.
