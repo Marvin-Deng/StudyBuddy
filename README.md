@@ -37,20 +37,22 @@ Many university students struggle with their classes but don't know who to ask. 
 - Students can view all of the available classes
 ![view_all_classes](https://github.com/Marvin-Deng/TutorMe/assets/41402962/75a525dd-da8d-457d-bc22-5c87c9e1c1c3)
 
-### Students can create classes   []
+### Students can create classes  ✅
 - Students will add classes with the information such as the name and the professor of the class
+![create_class](https://github.com/Marvin-Deng/TutorMe/assets/41402962/76ec2232-5d22-4746-babe-e0831854fc9a)
 
-### Students can join classes   []
-- Students can join an existing class
 
-### Students can create student groups   []
-- Students will create groups with limited slots. Students can view, join, or leave any open groups.
-![Create study groups](https://github.com/Marvin-Deng/TutorMe/assets/52214624/918a9bc5-98d3-4aac-8207-e68671bbd780)
+### Students can create student groups  ✅
+- Students will create groups Students can view, join, or leave any open groups. Each group will be linked to one existing class.
+
+![create_studygroup](https://github.com/Marvin-Deng/TutorMe/assets/41402962/00fdf324-5158-4b97-9816-1633af6c9220)
+
 
 ### Students can edit and delete student groups []
 - Students can edit or delete existing study groups
 
 ### Students can join or leave study groups []
+- Students can choose to either choose an existing user to join/leave a group or be redirected to a new page where they can create a user and then add/leave him from the group
 
 ### Students can decide on meeting time and meeting type   []
 - Students will be able to set day/times for when they want to meet. Additionally, they will be able to decide on how they want to meet (in person vs online) and if the choice is online, then add a link to the calls.
