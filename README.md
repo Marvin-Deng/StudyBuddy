@@ -42,9 +42,10 @@ Many university students struggle with their classes but don't know who to ask. 
 ![create_class](https://github.com/Marvin-Deng/TutorMe/assets/41402962/76ec2232-5d22-4746-babe-e0831854fc9a)
 
 
-### Students can create student groups   []
+### Students can create student groups  ✅
 - Students will create groups Students can view, join, or leave any open groups. Each group will be linked to one existing class.
-![create_studygroup](https://github.com/Marvin-Deng/TutorMe/assets/41402962/5ac84687-cc6c-473a-9501-44787054530e)
+
+![create_studygroup](https://github.com/Marvin-Deng/TutorMe/assets/41402962/00fdf324-5158-4b97-9816-1633af6c9220)
 
 
 ### Students can edit and delete student groups []
