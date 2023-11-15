@@ -6,7 +6,7 @@ import GroupInputForm from "../components/GroupInputForm";
 const EditGroupPage = () => {
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
-  const id = queryParams.get("id") || "";
+  const id = queryParams.get("id");
   const name = queryParams.get("name") || "";
   const description = queryParams.get("description") || "";
   const locationValue = queryParams.get("location") || "";

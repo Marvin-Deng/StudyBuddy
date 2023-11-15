@@ -60,6 +60,33 @@ class ClassController {
       return { success: false, message: "An error occurred: " + error.message };
     }
   }
+
+  static async updateClass(groupId, name, subject, professor) {
+    try {
+      const query = `
+        UPDATE classes 
+        SET 
+          name = COALESCE($2, name),
+          subject = COALESCE($3, subject),
+          professor = COALESCE($4, professor)
+        WHERE id = $1
+        RETURNING *;
+      `;
+      const result = await pool.query(query, [
+        groupId,
+        name,
+        subject,
+        professor,
+      ]);
+      if (result.rowCount === 1) {
+        return { success: true, message: "Class updated." };
+      } else {
+        return { success: false, message: "Failed to update the class." };
+      }
+    } catch (error) {
+      return { success: false, message: "An error occurred: " + error.message };
+    }
+  }
 }
 
 export default ClassController;

@@ -1,20 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { showToast } from "../utils/toastUtils";
 import ClassInputForm from "../components/ClassInputForm";
-import queryString from 'query-string';
+
 const EditClassPage = () => {
-    
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
-  const id = queryParams.get("id") || "";
+  const id = queryParams.get("id");
   const name = queryParams.get("name") || "";
   const subject = queryParams.get("subject") || "";
   const professor = queryParams.get("professor") || "";
-useEffect(() => {
-    console.log('id',id)
-    console.log('search',location.search)
-})
+
   const [formData, setFormData] = useState({
     id: id,
     name: name,
@@ -34,17 +30,14 @@ useEffect(() => {
     e.preventDefault();
     try {
       const response = await fetch(
-        "http://localhost:3001/class/updateGroup",
+        "http://localhost:3001/class/updateClass",
         requestOptions
       );
       if (!response.ok) {
-        showToast(
-          "Failed to update class",
-          "error"
-        );
+        showToast("Failed to update class", "error");
       } else {
         showToast("Class updated!", "success");
-        navigate("/");
+        navigate("/classes");
       }
     } catch (error) {
       showToast(
