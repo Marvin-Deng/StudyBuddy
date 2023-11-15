@@ -9,7 +9,7 @@ const StudyGroupPage = () => {
   const [group, setGroup] = useState({});
   const [loading, setLoading] = useState(false);
   const [students, setStudents] = useState([])
-
+  const [studentDeleted, setStudentDeleted] = useState(true)
   useEffect(() => {
     const fetchStudyGroup = async () => {
       setLoading(true);
@@ -32,11 +32,15 @@ const StudyGroupPage = () => {
         setStudents(null)
       }
       console.log(data.data)
+      setStudentDeleted(false)
     }
 
     fetchStudyGroup();
-    fetchStudentsForGroup()
-  }, []);
+    if (studentDeleted){
+      fetchStudentsForGroup()
+    }
+    
+  }, [studentDeleted]);
   return (
     <Container>
       {loading ? (
@@ -59,7 +63,7 @@ const StudyGroupPage = () => {
         <Row>
           <Col> 
           {students ? (
-            <StudentTable students={students}/>
+            <StudentTable students={students} groupId={group.id} setStudentDeleted={setStudentDeleted}/>
           ) : (
             <h1>No students in this group.</h1>
           )}

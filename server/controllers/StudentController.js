@@ -88,12 +88,13 @@ class StudentController {
 
   static async leaveStudyGroup(student_id, group_id) {
     try {
+      console.log(student_id,group_id)
       const query = `
                 DELETE FROM student_study_groups
                 WHERE student_id = $1 AND group_id = $2
             `;
       const result = await pool.query(query, [student_id, group_id]);
-
+      // console.log(result)
       if (result.rowCount === 1) {
         return { success: true, message: "Student left the study group." };
       } else {

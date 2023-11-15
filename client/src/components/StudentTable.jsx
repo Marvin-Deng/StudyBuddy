@@ -1,7 +1,42 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table';
 import { Button } from 'react-bootstrap';
-const StudentTable = ({students}) => {
+import { showToast } from '../utils/toastUtils';
+import { useNavigate } from 'react-router-dom';
+const StudentTable = ({students,groupId,setStudentDeleted}) => {
+  const navigate = useNavigate()
+  const handleLeave = async(studentId) => {
+  const requestOptions = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ studentId, groupId }),
+    };
+    try {
+      const response = await fetch(
+        "http://localhost:3001/student/leaveGroup",
+        requestOptions
+      );
+      if (!response.ok) {
+        showToast(
+          "An error occured.",
+          "error"
+        );
+      } else {
+        showToast("Student removed", "success");
+        
+      }
+    } catch (error) {
+      showToast(
+        "Error: Something went wrong. Please try again later.",
+        "error"
+      );
+    }
+    setStudentDeleted(true)
+    // navigate(`/group/${groupId}`);
+    // console.log(studentId,groupId)
+  }
   return (
     <Table>
         <thead>
@@ -21,7 +56,7 @@ const StudentTable = ({students}) => {
                     <td>{student.major}</td>
                     <td>{student.grad_year}</td>
                     <td>{student.school}</td>
-                    <td><Button variant='outline-danger'>Leave</Button></td>
+                    <td><Button variant='outline-danger' onClick={() => handleLeave(student.student_id)}>Leave</Button></td>
                 </tr>
             )
         })}
