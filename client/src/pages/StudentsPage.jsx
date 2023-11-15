@@ -1,8 +1,9 @@
 import { useEffect, useState, useContext } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { AppContext } from "../contexts/AppContext";
 import StudentComponent from "../components/StudentComponent";
 import Loader from "../components/Loader";
+import { LinkContainer } from "react-router-bootstrap";
 const StudentsPage = () => {
   const [students, setStudents] = useState();
   const [error, setError] = useState(false);
@@ -42,6 +43,13 @@ const StudentsPage = () => {
         <>
       <Row className="text-center">
         <h2>Students</h2>
+      </Row>
+      <Row className="mb-1">
+        <Col>
+          <LinkContainer to="/register">
+            <Button variant="primary">Create Class</Button>
+          </LinkContainer>
+        </Col>
       </Row>
       <Row>
         {students &&
