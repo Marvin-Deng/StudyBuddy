@@ -3,13 +3,14 @@ import { useRoutes } from "react-router-dom";
 import NavbarComponent from "./components/NavbarComponent";
 import StudentsPage from "./pages/StudentsPage";
 import StudentProfile from "./pages/StudentProfile";
-import CreateStudyGroup from "./pages/CreateStudyGroup";
+import CreateGroupPage from "./pages/CreateGroupPage";
 import CreateClass from "./pages/CreateClass";
 import ClassesPage from "./pages/ClassesPage";
 import StudyGroupsPage from "./pages/StudyGroupsPage";
 import JoinGroup from "./pages/JoinGroup";
 import { CreateStudent } from "./pages/CreateStudent";
 import StudyGroupPage from "./pages/StudyGroupPage";
+
 function App() {
   let subpages = useRoutes([
     {
@@ -30,7 +31,7 @@ function App() {
     },
     {
       path: "/createGroup",
-      element: <CreateStudyGroup />,
+      element: <CreateGroupPage />,
     },
     {
       path: "/classes",
