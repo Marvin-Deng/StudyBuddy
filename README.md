@@ -37,8 +37,9 @@ Many university students struggle with their classes but don't know who to ask. 
 - Students can view all of the available classes
 ![view_all_classes](https://github.com/Marvin-Deng/TutorMe/assets/41402962/75a525dd-da8d-457d-bc22-5c87c9e1c1c3)
 
-### Students can create classes   []
+### Students can create classes  ✅
 - Students will add classes with the information such as the name and the professor of the class
+![create_class](https://github.com/Marvin-Deng/TutorMe/assets/41402962/76ec2232-5d22-4746-babe-e0831854fc9a)
 
 
 ### Students can create student groups   []
