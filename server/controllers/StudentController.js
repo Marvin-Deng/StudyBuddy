@@ -60,7 +60,32 @@ class StudentController {
       return { success: false, message: "An error occurred: " + error.message };
     }
   }
-
+  static async updateClass(classId, name, subject, professor) {
+    try {
+      const query = `
+        UPDATE classes 
+        SET 
+          name = COALESCE($2, name),
+          subject = COALESCE($3, subject),
+          professor = COALESCE($4, professor),
+        WHERE id = $1
+        RETURNING *;
+      `;
+      const result = await pool.query(query, [
+        classId,
+        name,
+        subject,
+        professor,
+      ]);
+      if (result.rowCount === 1) {
+        return { success: true, message: "Class updated." };
+      } else {
+        return { success: false, message: "Failed to update the class." };
+      }
+    } catch (error) {
+      return { success: false, message: "An error occurred: " + error.message };
+    }
+  }
   static async joinStudyGroup(student_id, group_id) {
     try {
       const existsQuery = `SELECT EXISTS(SELECT 1 FROM student_study_groups where student_id=$1 AND group_id=$2)`
