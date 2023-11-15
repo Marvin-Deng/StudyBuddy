@@ -43,8 +43,8 @@ Many university students struggle with their classes but don't know who to ask. 
 
 
 ### Students can create student groups   []
-- Students will create groups with limited slots. Students can view, join, or leave any open groups.
-![Create study groups](https://github.com/Marvin-Deng/TutorMe/assets/52214624/918a9bc5-98d3-4aac-8207-e68671bbd780)
+- Students will create groups Students can view, join, or leave any open groups. Each group will be linked to one existing class.
+
 
 ### Students can edit and delete student groups []
 - Students can edit or delete existing study groups
