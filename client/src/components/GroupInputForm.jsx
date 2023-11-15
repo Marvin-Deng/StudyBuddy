@@ -89,7 +89,7 @@ const GroupInputForm = (props) => {
           </Form.Group>
 
           <Button className="fw-bold" variant="primary" type="submit">
-            Create Group
+            Submit
           </Button>
         </Form>
       </div>

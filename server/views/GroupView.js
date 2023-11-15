@@ -60,9 +60,12 @@ class GroupView {
 
   static async updateStudyGroup(req, res) {
     try {
-      const { groupId, name, location, time, description } = req.body;
+      const { id, name, location, time, description } = req.body;
+      if (isNaN(id)) {
+        res.status(400).json({ error: 'id must be a valid integer.' });
+      }
       const results = await GroupController.updateStudyGroup(
-        groupId,
+        id,
         name,
         location,
         time,
