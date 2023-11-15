@@ -40,8 +40,6 @@ export const CreateStudent = () => {
             "http://localhost:3001/student/createStudent",
             requestOptions
           );
-          const data = await response.json()
-          console.log(data)
           if (!response.ok) {
             showToast(
               "Invalid input (Name, School, Email, and Grad Year are required) ",

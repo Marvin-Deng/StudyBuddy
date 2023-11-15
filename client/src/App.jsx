@@ -11,7 +11,7 @@ import JoinGroup from "./pages/JoinGroup";
 import { CreateStudent } from "./pages/CreateStudent";
 import StudyGroupPage from "./pages/StudyGroupPage";
 import EditGroupPage from "./pages/EditGroupPage";
-
+import EditClassPage from "./pages/EditClassPage";
 function App() {
   let subpages = useRoutes([
     {
@@ -29,6 +29,10 @@ function App() {
     {
       path: "/editGroup/*",
       element: <EditGroupPage />,
+    },
+    {
+      path: "/classes/editClass/*",
+      element: <EditClassPage/>
     },
     {
       path: "/student/:id",

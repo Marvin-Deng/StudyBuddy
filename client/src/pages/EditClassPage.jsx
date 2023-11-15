@@ -1,25 +1,21 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { showToast } from "../utils/toastUtils";
-import GroupInputForm from "../components/GroupInputForm";
+import ClassInputForm from "../components/ClassInputForm";
 
-const EditGroupPage = () => {
+const EditClassPage = () => {
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
   const id = queryParams.get("id");
   const name = queryParams.get("name") || "";
-  const description = queryParams.get("description") || "";
-  const locationValue = queryParams.get("location") || "";
-  const time = queryParams.get("time") || "";
-  const class_id = queryParams.get("class_id") || "";
+  const subject = queryParams.get("subject") || "";
+  const professor = queryParams.get("professor") || "";
 
   const [formData, setFormData] = useState({
     id: id,
     name: name,
-    description: description,
-    location: locationValue,
-    time: time,
-    class_id: class_id,
+    subject: subject,
+    professor: professor,
   });
 
   const requestOptions = {
@@ -34,17 +30,14 @@ const EditGroupPage = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        "http://localhost:3001/group/updateGroup",
+        "http://localhost:3001/class/updateClass",
         requestOptions
       );
       if (!response.ok) {
-        showToast(
-          "Failed to update group",
-          "error"
-        );
+        showToast("Failed to update class", "error");
       } else {
-        showToast("Study group updated!", "success");
-        navigate("/");
+        showToast("Class updated!", "success");
+        navigate("/classes");
       }
     } catch (error) {
       showToast(
@@ -55,7 +48,7 @@ const EditGroupPage = () => {
   };
 
   return (
-    <GroupInputForm
+    <ClassInputForm
       formData={formData}
       setFormData={setFormData}
       handleSubmit={handleSubmit}
@@ -63,4 +56,4 @@ const EditGroupPage = () => {
   );
 };
 
-export default EditGroupPage;
+export default EditClassPage;

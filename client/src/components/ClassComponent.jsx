@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
 
 const ClassComponent = ({ id, name, subject, professor }) => {
   return (
@@ -10,12 +10,15 @@ const ClassComponent = ({ id, name, subject, professor }) => {
         <Card.Text>
           {subject} - {professor}
         </Card.Text>
-        <LinkContainer className="m-1" to={`/classes/editClass/${id}`}>
-            <Button>Edit Class</Button>
-        </LinkContainer>
-        <LinkContainer className="m-1" to={`/classes/deleteClass/${id}`}>
-            <Button>Delete Class</Button>
-        </LinkContainer>
+        <Link
+          className="m-1"
+          to={`editClass/?id=${id}&name=${name}&subject=${subject}&professor=${professor}`}
+        >
+          <Button>Edit Class</Button>
+        </Link>
+        <Link className="m-1" to={`/classes/deleteClass/${id}`}>
+          <Button>Delete Class</Button>
+        </Link>
       </Card.Body>
     </Card>
   );

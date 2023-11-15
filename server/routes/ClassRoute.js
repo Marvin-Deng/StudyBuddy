@@ -7,6 +7,7 @@ router.get("/getAll", ClassView.getClasses);
 router.get("/search/:search_string", ClassView.filterClasses);
 router.get("/:class_id", ClassView.getClassByID);
 router.post("/createClass", ClassView.createClass);
+router.patch('/updateClass',ClassView.updateClass)
 
 
 export default router;
