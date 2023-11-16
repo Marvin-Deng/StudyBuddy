@@ -33,7 +33,7 @@ const createStudyGroupQuery = `
         location VARCHAR(255) NOT NULL,
         time VARCHAR(100) NOT NULL,
         class_id INT,
-        FOREIGN KEY (class_id) REFERENCES classes(id)
+        FOREIGN KEY (class_id) REFERENCES classes(id) ON DELETE CASCADE
     );
 `
 
@@ -43,7 +43,7 @@ const createStudentStudyGroupQuery = `
         student_id INT NOT NULL,
         group_id INT NOT NULL,
         FOREIGN KEY (student_id) REFERENCES students(id),
-        FOREIGN KEY (group_id) REFERENCES study_groups(id)
+        FOREIGN KEY (group_id) REFERENCES study_groups(id) ON DELETE CASCADE
     );
 `
 

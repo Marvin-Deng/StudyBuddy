@@ -35,7 +35,15 @@ class ClassView {
       res.status(500).json({ error: error.message });
     }
   }
-<<<<<<< HEAD
+  static async deleteClass(req, res){
+    try {
+      const {class_id} = req.params
+      const results = await ClassController.deleteClass(class_id)
+      res.status(200).json(results)
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
   static async updateClass(req, res){
     try {
       const { id, name, subject, professor } = req.body;
@@ -53,9 +61,6 @@ class ClassView {
       res.status(500).json({ error: error.message });
     }
   }
-=======
-  
->>>>>>> 4aa840bb4a45c78867f929f27b4834c316911503
   static async createClass(req, res) {
     try {
       const { name, subject, professor } = req.body;

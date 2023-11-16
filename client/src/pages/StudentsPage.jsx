@@ -47,7 +47,7 @@ const StudentsPage = () => {
       <Row className="mb-1">
         <Col>
           <LinkContainer to="/register">
-            <Button variant="primary">Create Student</Button>
+            <Button variant="outline-primary">Create Student</Button>
           </LinkContainer>
         </Col>
       </Row>

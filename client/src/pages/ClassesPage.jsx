@@ -8,6 +8,7 @@ const ClassesPage = () => {
   const [classes, setClasses] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false)
+  const [refetch, setRefetch] = useState(true)
   const { classSearchResults } = useContext(AppContext);
 
   useEffect(() => {
@@ -26,13 +27,17 @@ const ClassesPage = () => {
       }
       setLoading(false)
     };
-
+    
     if (classSearchResults && classSearchResults.length > 0) {
       setClasses(classSearchResults);
     } else {
-      fetchAllClasses();
+      if (refetch){
+        fetchAllClasses();
+      }
+      
     }
-  }, [classSearchResults]);
+    setRefetch(false)
+  }, [refetch, classSearchResults]);
 
   return (
     <Container>
@@ -63,6 +68,7 @@ const ClassesPage = () => {
                   name={cls.name}
                   subject={cls.subject}
                   professor={cls.professor}
+                  setRefetch={setRefetch}
                 />
               </Col>
             );

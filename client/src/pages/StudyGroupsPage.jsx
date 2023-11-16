@@ -8,6 +8,7 @@ const StudyGroupsPage = () => {
   const [groups, setGroups] = useState();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false)
+  const [refetch, setRefetch] = useState(true)
   const { groupSearchResults } = useContext(AppContext);
 
 
@@ -32,9 +33,13 @@ const StudyGroupsPage = () => {
     if (groupSearchResults && groupSearchResults.length > 0) {
       setGroups(groupSearchResults);
     } else {
-      fetchStudyGroups();
+      if (refetch){
+        fetchStudyGroups();
+      }
+      
     }
-  }, [groupSearchResults]);
+    setRefetch(false)
+  }, [groupSearchResults, refetch]);
 
   return (
     <Container>
@@ -65,6 +70,7 @@ const StudyGroupsPage = () => {
                   time={group.time}
                   class_id={group.class_id}
                   detailedView={false}
+                  setRefetch={setRefetch}
                 />
               </Col>
             );

@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
-import Loader from "./Loader";
-
+import { showToast } from "../utils/toastUtils";
+import { useNavigate } from "react-router-dom";
 const GroupComponent = ({
   id,
   name,
@@ -12,7 +12,9 @@ const GroupComponent = ({
   time,
   class_id,
   detailedView,
+  setRefetch
 }) => {
+  const navigate = useNavigate()
   const [class_, setClass_] = useState({});
   const [loading, setLoading] = useState(false)
   useEffect(() => {
@@ -25,6 +27,27 @@ const GroupComponent = ({
     };
     getClassByID();
   }, []);
+
+  const handleDelete = async() => {
+    const requestOptions = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    };
+    const response = await fetch(`http://localhost:3001/group/deleteGroup/${id}`, requestOptions)
+    const data = await response.json()
+    if (data.success){
+      showToast("Class deleted", "success");
+      navigate('/')
+      setRefetch(true)
+    } else {
+      showToast(
+        "An error occured. ",
+        "error"
+      );
+    }
+  }
   return (
     <Card className="display-card">
       <Card.Body>
@@ -50,22 +73,26 @@ const GroupComponent = ({
         {!detailedView && (
           <>
             <Link className="m-1" to={`joinGroup/${id}`}>
-              <Button>Join Group</Button>
+              <Button variant="outline-success">Join Group</Button>
             </Link>
             <LinkContainer className="m-1" to={`/group/${id}`}>
-              <Button>View Group</Button>
+              <Button variant="outline-primary">View Group</Button>
             </LinkContainer>
           </>
         )}
-        <Link
+        {detailedView && (
+          <>
+          <Link
           to={`/editGroup/?id=${id}&name=${name}&description=${description}&location=${location}&time=${time}&class_id=${class_id}`}
           className="m-1"
         >
-          <Button>Edit Group</Button>
+          <Button variant="outline-warning">Edit Group</Button>
         </Link>
-        <LinkContainer className="m-1" to={`deleteGroup/${id}`}>
-          <Button>Delete Group</Button>
-        </LinkContainer>
+        
+          <Button onClick={handleDelete} variant="outline-danger">Delete Group</Button>
+          </>
+          
+        )}
       </Card.Body>
     </Card>
   );
