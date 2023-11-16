@@ -85,6 +85,9 @@ class GroupController {
       return { success: false, message: "An error occurred: " + error.message };
     }
   }
+
+
+
   static async updateStudyGroup(groupId, name, location, time, description) {
     try {
       const query = `

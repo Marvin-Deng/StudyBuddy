@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import InputForm from "./InputForm";
-
+import { showToast } from "../utils/toastUtils";
+import { useNavigate } from "react-router-dom";
 const GroupInputForm = (props) => {
+  const navigate = useNavigate()
   
   const [classes, setClasses] = useState([]);
 
@@ -10,11 +12,20 @@ const GroupInputForm = (props) => {
     const getAllClasses = async () => {
       const response = await fetch("http://localhost:3001/class/getAll");
       const data = await response.json();
-      setClasses(data);
-      props.setFormData((prevFormData) => ({
-        ...prevFormData,
-        class_id: data[0].id,
-      }));
+      if (data.length <=0){
+        showToast(
+          "Create atleast one class before attempting to create a study group.",
+          "error"
+        );
+        navigate('/')
+      } else {
+        setClasses(data);
+        props.setFormData((prevFormData) => ({
+          ...prevFormData,
+          class_id: data[0].id,
+        }));
+      }
+      
     };
     getAllClasses();
   }, []);

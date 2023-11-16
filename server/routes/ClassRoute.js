@@ -8,6 +8,7 @@ router.get("/search/:search_string", ClassView.filterClasses);
 router.get("/:class_id", ClassView.getClassByID);
 router.post("/createClass", ClassView.createClass);
 router.patch('/updateClass',ClassView.updateClass)
+router.delete('/deleteClass/:class_id',ClassView.deleteClass)
 
 
 export default router;

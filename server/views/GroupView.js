@@ -43,6 +43,7 @@ class GroupView {
       res.status(500).json({ error: error.message });
     }
   }
+
   static async createStudyGroup(req, res) {
     try {
       const { name, location, time, description, class_id } = req.body;
@@ -87,7 +88,7 @@ class GroupView {
 
   static async deleteStudyGroup(req, res) {
     try {
-      const { groupId } = req.body;
+      const { groupId } = req.params;
 
       if (!groupId) {
         return res.status(400).json({ error: "GroupId is a required field." });

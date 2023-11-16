@@ -21,10 +21,10 @@ const StudentComponent = ({
           {social_media} - {phone_number}
         </Card.Text>
         <LinkContainer to={`/student/${id}`}>
-          <Button className="m-1">View profile</Button>
+          <Button variant="outline-primary" className="m-1">View profile</Button>
         </LinkContainer>
         <LinkContainer to={`/editStudent/${id}`}>
-          <Button className="m-1">Edit profile</Button>
+          <Button variant="outline-warning" className="m-1">Edit profile</Button>
         </LinkContainer>
       </Card.Body>
     </Card>
