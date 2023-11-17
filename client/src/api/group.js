@@ -62,7 +62,7 @@ export const updateGroup = async (options) => {
 
 export const deleteGroup = async (id, options) => {
   try {
-    const response = await fetch(`deleteGroup/${id}`, options);
+    const response = await fetchResponse(`group/deleteGroup/${id}`, options);
     if (!response.ok) {
       showToast("An error occurred.", "error");
       throw new Error(`Failed to delete group. Status: ${response.status}`);
