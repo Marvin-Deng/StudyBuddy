@@ -94,10 +94,10 @@ cd client
 npm install
 ```
 
-Add a .env in the root of the client directory. For development, set the VITE_API_BASE_URL to http://localhost:3001
+Add a .env in the root of the client directory. For development, set the VITE_API_BASE_URL to http://localhost:3001. For deployment, change it to the deployed URL of the backend.
 
 ```
-// /client/.env
+# /client/.env
 VITE_API_BASE_URL = http://localhost:3001
 ```
 
