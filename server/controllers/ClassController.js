@@ -25,10 +25,8 @@ class ClassController {
     try {
       const query = "DELETE FROM classes WHERE id = $1"
       const result = await pool.query(query, [class_id])
-      console.log(result)
       return {success: true, message: "Class deleted succesfully"}
     } catch (error) {
-      console.log(error)
       return { success: false, message: "An error occurred: " + error.message };
     }
   }

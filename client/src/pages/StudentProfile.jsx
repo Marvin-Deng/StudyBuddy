@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import { getStudentById } from "../api/student";
 import StudentProfileComponent from "../components/StudentProfileComponent";
 
 const StudentProfile = () => {
@@ -10,17 +11,10 @@ const StudentProfile = () => {
 
   useEffect(() => {
     const fetchUserProfile = async () => {
-      const response = await fetch(`http://localhost:3001/student/${id}`);
-      if (response.status != 200) {
+      try {
+        setStudent(await getStudentById(id));
+      } catch (error) {
         setError(true);
-      } else {
-        const data = await response.json();
-        if (data) {
-          setStudent(data[0]);
-        } else {
-          setError(true);
-          setStudent(null);
-        }
       }
     };
 

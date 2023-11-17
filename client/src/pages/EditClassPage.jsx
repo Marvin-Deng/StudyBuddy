@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { showToast } from "../utils/toastUtils";
+import { updateClass } from "../api/class"
 import ClassInputForm from "../components/ClassInputForm";
 
 const EditClassPage = () => {
@@ -18,7 +18,7 @@ const EditClassPage = () => {
     professor: professor,
   });
 
-  const requestOptions = {
+  const options = {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -28,23 +28,8 @@ const EditClassPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch(
-        "http://localhost:3001/class/updateClass",
-        requestOptions
-      );
-      if (!response.ok) {
-        showToast("Failed to update class", "error");
-      } else {
-        showToast("Class updated!", "success");
-        navigate("/classes");
-      }
-    } catch (error) {
-      showToast(
-        "Error: Something went wrong. Please try again later.",
-        "error"
-      );
-    }
+    await updateClass(options)
+    navigate("/classes");
   };
 
   return (

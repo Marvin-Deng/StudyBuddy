@@ -1,13 +1,7 @@
-import { useEffect, useState } from "react";
-import { Form, Button, Row, Col } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import InputForm from "./InputForm";
 
 const ClassInputForm = (props) => {
-  
-  const [classes, setClasses] = useState([]);
-
-
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     props.setFormData((prevFormData) => ({

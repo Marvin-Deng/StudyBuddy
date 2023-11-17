@@ -1,30 +1,22 @@
-import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { showToast } from "../utils/toastUtils";
-const ClassComponent = ({ id, name, subject, professor, setRefetch }) => {
+import { deleteClass } from "../api/class";
 
-  const handleDelete = async() => {
-    const requestOptions = {
+const ClassComponent = ({ id, name, subject, professor, setRefetch }) => {
+  const handleDelete = async () => {
+    const options = {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
-      
     };
-    const response = await fetch(`http://localhost:3001/class/deleteClass/${id}`, requestOptions)
-    const data = await response.json()
-    if (data.success){
+
+    if (await deleteClass(id, options).success) {
       showToast("Class deleted", "success");
-      setRefetch(true)
-    } else {
-      showToast(
-        "An error occured. ",
-        "error"
-      );
+      setRefetch(true);
     }
-    
-  }
+  };
+
   return (
     <Card className="display-card">
       <Card.Body>
@@ -38,9 +30,10 @@ const ClassComponent = ({ id, name, subject, professor, setRefetch }) => {
         >
           <Button variant="outline-primary">Edit Class</Button>
         </Link>
-      
-          <Button onClick={handleDelete} variant="outline-danger">Delete Class</Button>
 
+        <Button onClick={handleDelete} variant="outline-danger">
+          Delete Class
+        </Button>
       </Card.Body>
     </Card>
   );

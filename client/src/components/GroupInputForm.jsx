@@ -3,33 +3,37 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 import InputForm from "./InputForm";
 import { showToast } from "../utils/toastUtils";
 import { useNavigate } from "react-router-dom";
+import { getAllClasses } from "../api/class"
+
 const GroupInputForm = (props) => {
-  const navigate = useNavigate()
-  
+  const navigate = useNavigate();
   const [classes, setClasses] = useState([]);
 
   useEffect(() => {
-    const getAllClasses = async () => {
-      const response = await fetch("http://localhost:3001/class/getAll");
-      const data = await response.json();
-      if (data.length <=0){
-        showToast(
-          "Create atleast one class before attempting to create a study group.",
-          "error"
-        );
-        navigate('/')
-      } else {
-        setClasses(data);
-        props.setFormData((prevFormData) => ({
-          ...prevFormData,
-          class_id: data[0].id,
-        }));
+    const fetchClasses = async () => {
+      try {
+        const data = await getAllClasses();
+        if (data.length <= 0) {
+          showToast(
+            "Create at least one class before attempting to create a study group.",
+            "error"
+          );
+          navigate("/");
+        } else {
+          setClasses(data);
+          props.setFormData((prevFormData) => ({
+            ...prevFormData,
+            class_id: data[0].id,
+          }));
+        }
+      } catch (error) {
+        showToast("Error fetching classes:", "error");
       }
-      
     };
-    getAllClasses();
+  
+    fetchClasses();
   }, []);
-
+  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     props.setFormData((prevFormData) => ({

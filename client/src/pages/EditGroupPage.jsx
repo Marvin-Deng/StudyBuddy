@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { showToast } from "../utils/toastUtils";
+import { updateGroup } from "../api/group"
 import GroupInputForm from "../components/GroupInputForm";
 
 const EditGroupPage = () => {
@@ -22,7 +22,7 @@ const EditGroupPage = () => {
     class_id: class_id,
   });
 
-  const requestOptions = {
+  const options = {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -32,26 +32,8 @@ const EditGroupPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch(
-        "http://localhost:3001/group/updateGroup",
-        requestOptions
-      );
-      if (!response.ok) {
-        showToast(
-          "Failed to update group",
-          "error"
-        );
-      } else {
-        showToast("Study group updated!", "success");
-        navigate("/");
-      }
-    } catch (error) {
-      showToast(
-        "Error: Something went wrong. Please try again later.",
-        "error"
-      );
-    }
+    await updateGroup(options)
+    navigate("/");
   };
 
   return (
