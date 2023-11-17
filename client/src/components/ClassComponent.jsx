@@ -1,7 +1,7 @@
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { deleteClass } from "../api/class";
-
+import { showToast } from "../utils/toastUtils";
 const ClassComponent = ({ id, name, subject, professor, setRefetch }) => {
   const handleDelete = async () => {
     const options = {
@@ -10,8 +10,10 @@ const ClassComponent = ({ id, name, subject, professor, setRefetch }) => {
         "Content-Type": "application/json",
       },
     };
+    const deleteResult = await deleteClass(id, options)
 
-    if (await deleteClass(id, options).success) {
+
+    if (deleteResult.success) {
       showToast("Class deleted", "success");
       setRefetch(true);
     }

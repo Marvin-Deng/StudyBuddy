@@ -46,8 +46,12 @@ const JoinGroup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await joinGroup(options)
-    navigate("/")
+    const joinGroupResponse = await joinGroup(options)
+    if (joinGroupResponse.success){
+      navigate(`/group/${id}`)
+    }
+
+    
   };
 
   return (

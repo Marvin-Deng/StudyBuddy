@@ -52,10 +52,16 @@ export const createStudent = async (options) => {
 export const joinGroup = async (options) => {
   try {
     const response = await fetchResponse(`student/joinGroup`, options);
+    const data = await response.json()
     if (!response.ok) {
       showToast("Error joining group.", "error");
+      return {success: false}
+    } else if (!data.success) {
+      showToast("This user already belongs to this group.", "error");
+      return {success: false}
     } else {
       showToast("Class joined!", "success");
+      return {success: true}
     }
   } catch (error) {
     showToast("Error: Something went wrong. Please try again later.", "error");

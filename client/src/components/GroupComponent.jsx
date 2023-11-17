@@ -23,10 +23,14 @@ const GroupComponent = ({
   useEffect(() => {
     const getClass = async () => {
       setLoading(true)
-      setClass_(await getClassById(class_id));
+      const classResponse = await getClassById(class_id)
+      setClass_(classResponse[0]);
       setLoading(false)
     };
-    getClass();
+    if (class_id){
+      getClass();
+    }
+    
   }, []);
 
   const handleDelete = async() => {
