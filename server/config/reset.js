@@ -1,8 +1,8 @@
 import { pool } from './db.js'
 import { createTableQueries } from './tables.js'
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 
-dotenv.config({ path: '../.env' })
+dotenv.config({ path: '../../.env' })
 
 const dropTableIfExists = `
     DROP TABLE IF EXISTS student_study_groups;

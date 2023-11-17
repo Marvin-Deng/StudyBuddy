@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { showToast } from "../utils/toastUtils";
+import { createClass } from "../api/class"
 import InputForm from "../components/InputForm";
 
-const createClass = () => {
+const CreateClassPage = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -21,38 +21,18 @@ const createClass = () => {
     }));
   };
 
-  const { name, subject, professor } = formData;
-
-  const requestOptions = {
+  const options = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, subject, professor }),
+    body: JSON.stringify(formData),
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch(
-        "http://localhost:3001/class/createClass",
-        requestOptions
-      );
-      if (!response.ok) {
-        showToast(
-          "Invalid input (Class Name, Subject, and Professor are required) ",
-          "error"
-        );
-      } else {
-        showToast("Class created!", "success");
-        navigate("/classes");
-      }
-    } catch (error) {
-      showToast(
-        "Error: Something went wrong. Please try again later.",
-        "error"
-      );
-    }
+    await createClass(options)
+    navigate("/classes")
   };
 
   return (
@@ -98,4 +78,4 @@ const createClass = () => {
   );
 };
 
-export default createClass;
+export default CreateClassPage;

@@ -1,8 +1,10 @@
 import { useState, useContext } from "react";
 import { FaSearch } from "react-icons/fa";
 import { AppContext } from "../contexts/AppContext";
-import { showToast } from "../utils/toastUtils";
 import { LinkContainer } from "react-router-bootstrap";
+import { filterStudents } from "../api/student"
+import { filterGroups } from "../api/group"
+import { filterClasses } from "../api/class"
 import InputForm from "./InputForm";
 import NavLink from "./NavLink";
 import {
@@ -24,50 +26,30 @@ const NavbarComponent = () => {
     setSearchString(value);
   };
 
-  const filterStudents = async (e) => {
+  const searchStudents = async (e) => {
     e.preventDefault();
-    const url = `http://localhost:3001/student/search/${searchString}`;
-    await fetchData(url);
+    updateSearchResults(await filterStudents(searchString), currentCategory);
   };
 
-  const filterClasses = async (e) => {
+  const searchClasses = async (e) => {
     e.preventDefault();
-    const url = `http://localhost:3001/class/search/${searchString}`;
-    await fetchData(url);
+    updateSearchResults(await filterClasses(searchString), currentCategory);
   };
 
-  const filterGroups = async (e) => {
+  const searchGroups = async (e) => {
     e.preventDefault();
-    const url = `http://localhost:3001/group/search/${searchString}`;
-    await fetchData(url);
+    updateSearchResults(await filterGroups(searchString), currentCategory);
   };
 
-  const fetchData = async (url) => {
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      if (data.length === 0 || data.length === undefined) {
-        showToast(`No results found for "${searchString}"`, "error");
-      } else {
-        updateSearchResults(data, currentCategory);
-        showToast(`Showing results for "${searchString}"`, "success");
-      }
-    } catch (error) {
-      showToast(
-        "Error: Something went wrong. Please try again later.",
-        "error"
-      );
-    }
-  };
 
   const selectFilterFunction = async (e) => {
     switch (currentCategory) {
       case "Students":
-        return await filterStudents(e);
+        return await searchStudents(e);
       case "Classes":
-        return await filterClasses(e);
+        return await searchClasses(e);
       case "Study Groups":
-        return await filterGroups(e);
+        return await searchGroups(e);
       default:
         return null;
     }

@@ -23,9 +23,6 @@ const StudentComponent = ({
         <LinkContainer to={`/student/${id}`}>
           <Button variant="outline-primary" className="m-1">View profile</Button>
         </LinkContainer>
-        <LinkContainer to={`/editStudent/${id}`}>
-          <Button variant="outline-warning" className="m-1">Edit profile</Button>
-        </LinkContainer>
       </Card.Body>
     </Card>
   );

@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, Row } from "react-bootstrap";
 
 const StudentProfileComponent = ({ name, school, major, grad_year }) => {

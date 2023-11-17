@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
-import { showToast } from "../utils/toastUtils";
 import { useNavigate } from "react-router-dom";
+import { getClassById } from "../api/class"
+import { deleteGroup } from "../api/group"
+
 const GroupComponent = ({
   id,
   name,
@@ -17,37 +19,34 @@ const GroupComponent = ({
   const navigate = useNavigate()
   const [class_, setClass_] = useState({});
   const [loading, setLoading] = useState(false)
+
   useEffect(() => {
-    const getClassByID = async () => {
+    const getClass = async () => {
       setLoading(true)
-      const response = await fetch(`http://localhost:3001/class/${class_id}`);
-      const data = await response.json();
-      setClass_(data[0]);
+      const classResponse = await getClassById(class_id)
+      setClass_(classResponse[0]);
       setLoading(false)
     };
-    getClassByID();
+    if (class_id){
+      getClass();
+    }
+    
   }, []);
 
   const handleDelete = async() => {
-    const requestOptions = {
+    const options = {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       }
     };
-    const response = await fetch(`http://localhost:3001/group/deleteGroup/${id}`, requestOptions)
-    const data = await response.json()
+    const data = await deleteGroup(id, options)
     if (data.success){
-      showToast("Class deleted", "success");
       navigate('/')
       setRefetch(true)
-    } else {
-      showToast(
-        "An error occured. ",
-        "error"
-      );
     }
   }
+  
   return (
     <Card className="display-card">
       <Card.Body>
