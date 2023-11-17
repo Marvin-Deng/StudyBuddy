@@ -57,6 +57,55 @@ Many university students struggle with their classes but don't know who to ask. 
 - Students can choose to either choose an existing user to join/leave a group or be redirected to a new page where they can create a user and then add/leave him from the group
 ![join_leave_group](https://github.com/Marvin-Deng/TutorMe/assets/41402962/d356bb0d-dbd0-4b3c-9d55-81727d7bd97d)
 
-
-
 ## Installation Instructions
+
+Clone the repository:
+
+...
+git clone https://github.com/Marvin-Deng/TutorMe.git
+...
+
+Setup a [Railway](https://railway.app/) Postgres database. Create a .env based on the template and fill in the variables fom your Postgres database
+
+```
+cp .env.TEMPLATE .env
+```
+
+Backend Setup:
+- Enter the server directory, install dependencies, and set up the database schema:
+  
+...
+cd server
+npm install
+npm run reset
+...
+
+To start the development server, run 
+
+...
+npm start
+...
+
+Frontend setup:
+- Enter the client directory and install dependencies
+
+...
+cd client
+npm install
+...
+
+Add a .env in the root of the client directory. For development, set the VITE_API_BASE_URL to http://localhost:3001
+
+...
+// /client/.env
+VITE_API_BASE_URL = http://localhost:3001
+...
+
+To run the React app, run the following in the client directory. This will automatically run the development server as well.
+
+...
+npm run dev
+...
+
+
+
