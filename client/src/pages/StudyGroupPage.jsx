@@ -12,7 +12,7 @@ const StudyGroupPage = () => {
   const [loading, setLoading] = useState(false);
   const [students, setStudents] = useState([]);
   const [studentDeleted, setStudentDeleted] = useState(true);
-
+  const [refetch, setRefetch] = useState(false)
   useEffect(() => {
     const fetchStudyGroup = async () => {
       setLoading(true);
@@ -57,6 +57,7 @@ const StudyGroupPage = () => {
                 time={group.time}
                 class_id={group.class_id}
                 detailedView={true}
+                setRefetch={setRefetch}
               />
             </Col>
           </Row>
