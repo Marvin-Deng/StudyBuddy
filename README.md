@@ -27,7 +27,7 @@ Many university students struggle with their classes but don't know who to ask. 
 
 ### Profile of students ✅
 - Students have a profile page information about them
-![personal_profile](https://github.com/Marvin-Deng/TutorMe/assets/41402962/23661b90-24c8-4d5d-ac85-2126347b4264)
+![personal_profile](https://github.com/Marvin-Deng/TutorMe/assets/41402962/6d52ada2-9dff-4cda-ad1b-8438260f22d9)
 
 ### Summary of students ✅
 - Displays all students who are on the website
@@ -35,17 +35,19 @@ Many university students struggle with their classes but don't know who to ask. 
 
 ### Students can view classes ✅
 - Students can view all of the available classes
-![view_all_classes](https://github.com/Marvin-Deng/TutorMe/assets/41402962/75a525dd-da8d-457d-bc22-5c87c9e1c1c3)
+![view_all_classes](https://github.com/Marvin-Deng/TutorMe/assets/41402962/af3d266c-e4ea-4a26-82bd-8be1e549e508)
+
 
 ### Students can create classes  ✅
 - Students will add classes with the information such as the name and the professor of the class
-![create_class](https://github.com/Marvin-Deng/TutorMe/assets/41402962/76ec2232-5d22-4746-babe-e0831854fc9a)
+![create_class](https://github.com/Marvin-Deng/TutorMe/assets/41402962/11e1b1a3-a255-4472-9c33-e36db7c393c9)
+
 
 
 ### Students can create student groups  ✅
 - Students will create groups Students can view, join, or leave any open groups. Each group will be linked to one existing class.
+![create_studygroup](https://github.com/Marvin-Deng/TutorMe/assets/41402962/089358d9-cb10-48cb-8172-08999c054da6)
 
-![create_studygroup](https://github.com/Marvin-Deng/TutorMe/assets/41402962/00fdf324-5158-4b97-9816-1633af6c9220)
 
 
 ### Students can edit and delete student groups []
