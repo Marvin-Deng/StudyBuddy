@@ -3,7 +3,7 @@ CodePath WEB103 Final Project
 
 Designed and developed by: Patrick Biedermann and Marvin Deng
 
-🔗 Link to deployed app:
+🔗 Link to deployed app: https://study-buddy-codepath.up.railway.app/
 
 ## About
 
@@ -44,11 +44,9 @@ Many university students struggle with their classes but don't know who to ask. 
 ![create_class](https://github.com/Marvin-Deng/TutorMe/assets/41402962/11e1b1a3-a255-4472-9c33-e36db7c393c9)
 
 
-
 ### Students can create student groups  ✅
 - Students will create groups Students can view, join, or leave any open groups. Each group will be linked to one existing class.
 ![create_studygroup](https://github.com/Marvin-Deng/TutorMe/assets/41402962/089358d9-cb10-48cb-8172-08999c054da6)
-
 
 
 ### Students can edit and delete student groups []
