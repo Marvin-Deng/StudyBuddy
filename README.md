@@ -31,7 +31,8 @@ Many university students struggle with their classes but don't know who to ask. 
 
 ### Summary of students ✅
 - Displays all students who are on the website
-![de96171036e0fdd6624a554033ef597d](https://github.com/Marvin-Deng/TutorMe/assets/41402962/7a6be364-4ea0-4e78-b7b5-36fba2eb0f72)
+![view_all_students](https://github.com/Marvin-Deng/TutorMe/assets/41402962/8fd12550-c0fc-44d6-b266-bd9dc86e2018)
+
 
 ### Students can view classes ✅
 - Students can view all of the available classes
