@@ -12,7 +12,9 @@ const StudentProfile = () => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        setStudent(await getStudentById(id));
+
+        const studentResult = await getStudentById(id)
+        setStudent(studentResult[0]);
       } catch (error) {
         setError(true);
       }

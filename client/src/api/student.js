@@ -1,7 +1,7 @@
 import { fetchResponse, fetchFilteredData } from "./api";
 import { showToast } from "../utils/toastUtils";
 
-export const getStudentById = async () => {
+export const getStudentById = async (id) => {
   try {
     const response = await fetchResponse(`student/${id}`);
     if (!response.ok) {
