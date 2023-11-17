@@ -50,9 +50,11 @@ Many university students struggle with their classes but don't know who to ask. 
 
 ### Students can edit and delete student groups []
 - Students can edit or delete existing study groups
+![group_delete](https://github.com/Marvin-Deng/TutorMe/assets/41402962/63297104-be81-4f8a-a473-40089fc63a50)
 
 ### Students can join or leave study groups []
 - Students can choose to either choose an existing user to join/leave a group or be redirected to a new page where they can create a user and then add/leave him from the group
+![join_leave_group](https://github.com/Marvin-Deng/TutorMe/assets/41402962/d356bb0d-dbd0-4b3c-9d55-81727d7bd97d)
 
 
 
