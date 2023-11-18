@@ -25,6 +25,15 @@ Many university students struggle with their classes but don't know who to ask. 
 
 ## Features
 
+### Searching for study groups
+![group_search](https://github.com/Marvin-Deng/TutorMe/assets/52214624/ea6794aa-ff40-422f-8474-1a0c0524ee6d)
+
+### Searching for students
+![student_search](https://github.com/Marvin-Deng/TutorMe/assets/52214624/ed730d8d-bfda-4a16-825a-90bf90cd885d)
+
+### Searching for classes
+![class_search](https://github.com/Marvin-Deng/TutorMe/assets/52214624/f93686ea-b568-4fd4-be92-3ebe4cd793d5)
+
 ### Profile of students ✅
 - Students have a profile page information about them
 ![personal_profile](https://github.com/Marvin-Deng/TutorMe/assets/41402962/6d52ada2-9dff-4cda-ad1b-8438260f22d9)
