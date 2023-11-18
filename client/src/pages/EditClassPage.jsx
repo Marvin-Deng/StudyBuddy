@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { updateClass } from "../api/class"
+import { updateClass } from "../api/class";
 import ClassInputForm from "../components/ClassInputForm";
 
 const EditClassPage = () => {
@@ -28,7 +28,7 @@ const EditClassPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await updateClass(options)
+    await updateClass(options);
     navigate("/classes");
   };
 

@@ -3,7 +3,7 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 import InputForm from "./InputForm";
 import { showToast } from "../utils/toastUtils";
 import { useNavigate } from "react-router-dom";
-import { getAllClasses } from "../api/class"
+import { getAllClasses } from "../api/class";
 
 const GroupInputForm = (props) => {
   const navigate = useNavigate();
@@ -30,10 +30,10 @@ const GroupInputForm = (props) => {
         showToast("Error fetching classes:", "error");
       }
     };
-  
+
     fetchClasses();
   }, []);
-  
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     props.setFormData((prevFormData) => ({

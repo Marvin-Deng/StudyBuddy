@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createGroup } from "../api/group"
+import { createGroup } from "../api/group";
 import GroupInputForm from "../components/GroupInputForm";
 
 const CreateGroupPage = () => {
@@ -23,7 +23,7 @@ const CreateGroupPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await createGroup(options)
+    await createGroup(options);
     navigate("/");
   };
 

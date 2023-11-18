@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { createClass } from "../api/class"
+import { createClass } from "../api/class";
 import InputForm from "../components/InputForm";
 
 const CreateClassPage = () => {
@@ -31,8 +31,8 @@ const CreateClassPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await createClass(options)
-    navigate("/classes")
+    await createClass(options);
+    navigate("/classes");
   };
 
   return (

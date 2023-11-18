@@ -1,9 +1,8 @@
 import { Button } from "react-bootstrap";
-import { leaveGroup } from "../api/student"
+import { leaveGroup } from "../api/student";
 import Table from "react-bootstrap/Table";
 
 const StudentTable = ({ students, groupId, setStudentDeleted }) => {
-  
   const handleLeave = async (studentId) => {
     const options = {
       method: "DELETE",
@@ -12,7 +11,7 @@ const StudentTable = ({ students, groupId, setStudentDeleted }) => {
       },
       body: JSON.stringify({ studentId, groupId }),
     };
-    await leaveGroup(options)
+    await leaveGroup(options);
     setStudentDeleted(true);
   };
 

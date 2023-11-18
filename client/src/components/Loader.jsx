@@ -1,4 +1,5 @@
 import { Row, Spinner } from 'react-bootstrap'
+
 const Loader = ({isLoading}) => {
   return (
     <>

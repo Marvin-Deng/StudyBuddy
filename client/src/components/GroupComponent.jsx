@@ -3,8 +3,8 @@ import { Card, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { getClassById } from "../api/class"
-import { deleteGroup } from "../api/group"
+import { getClassById } from "../api/class";
+import { deleteGroup } from "../api/group";
 
 const GroupComponent = ({
   id,
@@ -14,39 +14,38 @@ const GroupComponent = ({
   time,
   class_id,
   detailedView,
-  setRefetch
+  setRefetch,
 }) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [class_, setClass_] = useState({});
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const getClass = async () => {
-      setLoading(true)
-      const classResponse = await getClassById(class_id)
+      setLoading(true);
+      const classResponse = await getClassById(class_id);
       setClass_(classResponse[0]);
-      setLoading(false)
+      setLoading(false);
     };
-    if (class_id){
+    if (class_id) {
       getClass();
     }
-    
   }, []);
 
-  const handleDelete = async() => {
+  const handleDelete = async () => {
     const options = {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-      }
+      },
     };
-    const data = await deleteGroup(id, options)
-    if (data.success){
-      navigate('/')
-      setRefetch(true)
+    const data = await deleteGroup(id, options);
+    if (data.success) {
+      navigate("/");
+      setRefetch(true);
     }
-  }
-  
+  };
+
   return (
     <Card className="display-card">
       <Card.Body>
@@ -57,10 +56,10 @@ const GroupComponent = ({
               <span>Loading class info...</span>
             ) : (
               <>
-              {class_ && class_.name} with professor {class_ && class_.professor}
+                {class_ && class_.name} with professor{" "}
+                {class_ && class_.professor}
               </>
             )}
-            
           </span>
           <br />
           <span className="mb-3">
@@ -81,16 +80,17 @@ const GroupComponent = ({
         )}
         {detailedView && (
           <>
-          <Link
-          to={`/editGroup/?id=${id}&name=${name}&description=${description}&location=${location}&time=${time}&class_id=${class_id}`}
-          className="m-1"
-        >
-          <Button variant="outline-warning">Edit Group</Button>
-        </Link>
-        
-          <Button onClick={handleDelete} variant="outline-danger">Delete Group</Button>
+            <Link
+              to={`/editGroup/?id=${id}&name=${name}&description=${description}&location=${location}&time=${time}&class_id=${class_id}`}
+              className="m-1"
+            >
+              <Button variant="outline-warning">Edit Group</Button>
+            </Link>
+
+            <Button onClick={handleDelete} variant="outline-danger">
+              Delete Group
+            </Button>
           </>
-          
         )}
       </Card.Body>
     </Card>

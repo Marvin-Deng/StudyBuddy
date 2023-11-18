@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { updateGroup } from "../api/group"
+import { updateGroup } from "../api/group";
 import GroupInputForm from "../components/GroupInputForm";
 
 const EditGroupPage = () => {
@@ -32,7 +32,7 @@ const EditGroupPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await updateGroup(options)
+    await updateGroup(options);
     navigate("/");
   };
 

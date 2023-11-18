@@ -12,14 +12,13 @@ const StudentProfile = () => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-
         const studentResult = await getStudentById(id)
         setStudent(studentResult[0]);
       } catch (error) {
         setError(true);
       }
     };
-
+    
     fetchUserProfile();
   }, []);
 

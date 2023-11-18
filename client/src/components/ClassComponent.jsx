@@ -2,6 +2,7 @@ import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { deleteClass } from "../api/class";
 import { showToast } from "../utils/toastUtils";
+
 const ClassComponent = ({ id, name, subject, professor, setRefetch }) => {
   const handleDelete = async () => {
     const options = {
@@ -11,8 +12,6 @@ const ClassComponent = ({ id, name, subject, professor, setRefetch }) => {
       },
     };
     const deleteResult = await deleteClass(id, options)
-
-
     if (deleteResult.success) {
       showToast("Class deleted", "success");
       setRefetch(true);
@@ -32,7 +31,6 @@ const ClassComponent = ({ id, name, subject, professor, setRefetch }) => {
         >
           <Button variant="outline-primary">Edit Class</Button>
         </Link>
-
         <Button onClick={handleDelete} variant="outline-danger">
           Delete Class
         </Button>

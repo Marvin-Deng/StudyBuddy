@@ -2,9 +2,9 @@ import { useState, useContext } from "react";
 import { FaSearch } from "react-icons/fa";
 import { AppContext } from "../contexts/AppContext";
 import { LinkContainer } from "react-router-bootstrap";
-import { filterStudents } from "../api/student"
-import { filterGroups } from "../api/group"
-import { filterClasses } from "../api/class"
+import { filterStudents } from "../api/student";
+import { filterGroups } from "../api/group";
+import { filterClasses } from "../api/class";
 import InputForm from "./InputForm";
 import NavLink from "./NavLink";
 import {
@@ -41,7 +41,6 @@ const NavbarComponent = () => {
     updateSearchResults(await filterGroups(searchString), currentCategory);
   };
 
-
   const selectFilterFunction = async (e) => {
     switch (currentCategory) {
       case "Students":
@@ -56,7 +55,7 @@ const NavbarComponent = () => {
   };
 
   return (
-    <Navbar expand="lg" style={{ backgroundColor: '#FFFFCC' }}>
+    <Navbar expand="lg" style={{ backgroundColor: "#FFFFCC" }}>
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand href="#home" className="fs-5 fw-bold">

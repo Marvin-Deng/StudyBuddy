@@ -12,6 +12,7 @@ import { CreateStudent } from "./pages/CreateStudent";
 import StudyGroupPage from "./pages/StudyGroupPage";
 import EditGroupPage from "./pages/EditGroupPage";
 import EditClassPage from "./pages/EditClassPage";
+
 function App() {
   let subpages = useRoutes([
     {
