@@ -1,7 +1,6 @@
 import ClassController from "../controllers/ClassController.js";
 
 class ClassView {
-
   static async getClassByID(req, res) {
     try {
       const { class_id } = req.params;
@@ -35,32 +34,35 @@ class ClassView {
       res.status(500).json({ error: error.message });
     }
   }
-  static async deleteClass(req, res){
+
+  static async deleteClass(req, res) {
     try {
-      const {class_id} = req.params
-      const results = await ClassController.deleteClass(class_id)
-      res.status(200).json(results)
+      const { class_id } = req.params;
+      const results = await ClassController.deleteClass(class_id);
+      res.status(200).json(results);
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
   }
-  static async updateClass(req, res){
+
+  static async updateClass(req, res) {
     try {
       const { id, name, subject, professor } = req.body;
       if (isNaN(id)) {
-        res.status(400).json({ error: 'id must be a valid integer.' });
+        res.status(400).json({ error: "id must be a valid integer." });
       }
       const results = await ClassController.updateClass(
         id,
         name,
         subject,
-        professor,
+        professor
       );
       res.status(200).json(results);
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
   }
+
   static async createClass(req, res) {
     try {
       const { name, subject, professor } = req.body;
@@ -69,7 +71,6 @@ class ClassView {
           .status(400)
           .json({ error: "Name, subject, and professor are required fields." });
       }
-
       const results = await ClassController.createClass(
         name,
         subject,

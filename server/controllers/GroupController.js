@@ -38,7 +38,7 @@ class GroupController {
                 SELECT id
                 FROM classes
                 WHERE to_tsvector('english', name) @@ to_tsquery('english', word)
-            )
+              )
           ) > 0;
       `;
       const results = await pool.query(query, [search_string]);
@@ -71,13 +71,22 @@ class GroupController {
       return { success: false, message: "An error occurred: " + error.message };
     }
   }
-  static async getStudentsForGroup(groupId){
+
+  static async getStudentsForGroup(groupId) {
     try {
-      const query = `SELECT * FROM students JOIN student_study_groups ON student_study_groups.student_id = students.id AND group_id = $1`
-      const result = await pool.query(query, [groupId])
-      // console.log(result.rows)
+      const query = `
+        SELECT * FROM students 
+        JOIN student_study_groups ON student_study_groups.student_id = students.id 
+        AND group_id = $1
+      `;
+      const result = await pool.query(query, [groupId]);
+
       if (result.rowCount >= 1) {
-        return { success: true, message: "Students fetched.", data: result.rows };
+        return {
+          success: true,
+          message: "Students fetched.",
+          data: result.rows,
+        };
       } else {
         return { success: false, message: "No students in this group." };
       }
@@ -85,8 +94,6 @@ class GroupController {
       return { success: false, message: "An error occurred: " + error.message };
     }
   }
-
-
 
   static async updateStudyGroup(groupId, name, location, time, description) {
     try {
@@ -123,7 +130,6 @@ class GroupController {
         `DELETE FROM study_groups WHERE id = $1`,
         [groupId]
       );
-
       if (result.rowCount === 1) {
         return { success: true, message: "Study group deleted." };
       } else {
