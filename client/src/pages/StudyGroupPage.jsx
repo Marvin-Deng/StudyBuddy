@@ -13,6 +13,7 @@ const StudyGroupPage = () => {
   const [students, setStudents] = useState([]);
   const [studentDeleted, setStudentDeleted] = useState(true);
   const [refetch, setRefetch] = useState(false)
+  
   useEffect(() => {
     const fetchStudyGroup = async () => {
       setLoading(true);

@@ -6,6 +6,7 @@ const NavLink = ({ route, name, handleCategoryChange}) => {
     <LinkContainer to={route}>
       <Nav.Link
         className="mx-3 fs-5 fw-bold position-relative"
+        
         onClick={() => handleCategoryChange(name)}
         style={{
           position: "relative",

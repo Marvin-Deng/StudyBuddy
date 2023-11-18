@@ -1,16 +1,16 @@
 import "./App.css";
-import { useRoutes } from "react-router-dom";
 import NavbarComponent from "./components/NavbarComponent";
+import { useRoutes } from "react-router-dom";
+import { CreateStudent } from "./pages/CreateStudent";
 import StudentsPage from "./pages/StudentsPage";
 import StudentProfile from "./pages/StudentProfile";
 import CreateGroupPage from "./pages/CreateGroupPage";
-import CreateClass from "./pages/CreateClass";
-import ClassesPage from "./pages/ClassesPage";
+import StudyGroupPage from "./pages/StudyGroupPage";
 import StudyGroupsPage from "./pages/StudyGroupsPage";
 import JoinGroup from "./pages/JoinGroup";
-import { CreateStudent } from "./pages/CreateStudent";
-import StudyGroupPage from "./pages/StudyGroupPage";
 import EditGroupPage from "./pages/EditGroupPage";
+import CreateClass from "./pages/CreateClass";
+import ClassesPage from "./pages/ClassesPage";
 import EditClassPage from "./pages/EditClassPage";
 
 function App() {

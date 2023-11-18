@@ -40,7 +40,7 @@ const StudentsPage = () => {
       {!loading && (
         <>
           <Row className="text-center">
-            <h2>Students</h2>
+            <h2 className="mt-5">Students</h2>
           </Row>
           <Row className="mb-1">
             <Col>

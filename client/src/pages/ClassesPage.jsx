@@ -41,13 +41,13 @@ const ClassesPage = () => {
         <>
           <Row className="text-center">
             <Col>
-              <h2>Classes</h2>
+              <h2 className="mt-5">Classes</h2>
             </Col>
           </Row>
           <Row>
             <Col>
               <LinkContainer to="/createClass">
-                <Button variant="primary">Create Class</Button>
+                <Button variant="outline-primary">Create Class</Button>
               </LinkContainer>
             </Col>
           </Row>

@@ -1,15 +1,15 @@
-import { Row, Spinner } from 'react-bootstrap'
+import { Row, Spinner } from "react-bootstrap";
 
-const Loader = ({isLoading}) => {
+const Loader = ({ isLoading }) => {
   return (
     <>
-     {isLoading && (
-        <Row className='justify-content-center align-items-center'>
-            <Spinner animation="border" />
+      {isLoading && (
+        <Row className="justify-content-center align-items-center">
+          <Spinner animation="border" />
         </Row>
-    )}
+      )}
     </>
-  )
-}
+  );
+};
 
-export default Loader
+export default Loader;

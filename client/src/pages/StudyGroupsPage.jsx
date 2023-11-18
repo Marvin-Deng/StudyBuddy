@@ -41,12 +41,12 @@ const StudyGroupsPage = () => {
       {!loading && (
         <>
           <Row className="text-center">
-            <h2>Groups</h2>
+            <h2 className="mt-5">Groups</h2>
           </Row>
           <Row>
             <Col>
               <LinkContainer to="/createGroup">
-                <Button variant="primary" className="mt-4 mb-4">
+                <Button variant="outline-primary" className="mt-4 mb-4">
                   Create Group
                 </Button>
               </LinkContainer>

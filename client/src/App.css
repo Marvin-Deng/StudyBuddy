@@ -1,6 +1,7 @@
 body {
-    background-color: #e6f7ff;
+    background: linear-gradient(to right, #a4bde2, #7fbfdc);
 }
+
 
 .display-card {
     margin: 10px 0px 10px 0px;

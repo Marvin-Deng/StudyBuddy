@@ -3,7 +3,6 @@ import { showToast } from "../utils/toastUtils";
 
 export const getClassById = async (id) => {
   try {
-
     const response = await fetchResponse(`class/${id}`);
     if (!response.ok) {
       throw new Error(`Failed to fetch class with ID ${id}`);

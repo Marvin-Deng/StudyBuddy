@@ -3,12 +3,12 @@ import { Container, Button, Row, Form, Col } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { getAllStudents, joinGroup } from "../api/student";
-import { getGroupById } from "../api/group"
-import { getClassById } from "../api/class"
+import { getGroupById } from "../api/group";
+import { getClassById } from "../api/class";
 import Loader from "../components/Loader";
 
 const JoinGroup = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [group, setGroup] = useState({});
   const [class_, setClass_] = useState({});
   const [students, setStudents] = useState([]);
@@ -19,19 +19,20 @@ const JoinGroup = () => {
   useEffect(() => {
     const getGroupAndClass = async () => {
       setLoading(true);
-      const group_data = await getGroupById(id)
+      const group_data = await getGroupById(id);
       setGroup(group_data[0]);
 
-      const class_data = await getClassById(group_data[0].class_id)
+      const class_data = await getClassById(group_data[0].class_id);
       setClass_(class_data[0]);
       setLoading(false);
     };
 
     const fetchStudents = async () => {
-      const data = await getAllStudents()
+      const data = await getAllStudents();
       setStudents(data);
       setStudent(data[0].id);
     };
+
     getGroupAndClass();
     fetchStudents();
   }, []);
@@ -46,9 +47,9 @@ const JoinGroup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const joinGroupResponse = await joinGroup(options)
-    if (joinGroupResponse.success){
-      navigate(`/group/${id}`)
+    const joinGroupResponse = await joinGroup(options);
+    if (joinGroupResponse.success) {
+      navigate(`/group/${id}`);
     }
   };
 
