@@ -55,7 +55,7 @@ const NavbarComponent = () => {
   };
 
   return (
-    <Navbar expand="lg">
+    <Navbar expand="lg" style={{ borderBottom: '2px solid white' }}>
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand href="#home" className="fs-5 fw-bold">
